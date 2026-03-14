@@ -17,7 +17,17 @@ export default function ViewEmployee() {
 
   //delete
   const deleteEmployee = (id)=>{
-    axios.delete(`http://localhost:8080`)
+    axios.delete(`http://localhost:8080/deleteemp/${id}`)
+    .then(()=>{
+        alert("Employee Deleted Successfully")
+
+        setEmployees(
+            employees.filter((emp)=>emp.id !==id)
+        )
+    })
+    .catch(()=>{
+        alert("Error deleting employee")
+    })
   }
 
 
