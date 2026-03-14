@@ -23,9 +23,26 @@ export default function AddEmployee() {
     let [reportingmanager, setreportingmanager] = useState("");
     let [worklocation ,setworklocation] = useState("");
     let [status, setstatus] = useState("");
-    let [Joiningdate, setjoiningdate] = useState("");
+    let [joiningdate, setjoiningdate] = useState("");
     
 
+    //validation
+    // let validation = () =>{
+    //     if(firstname==""||lastname==""||middlename=""||)
+    // }
+
+
+
+    // hanfle sumbmit
+    // const submit = (event)=>{
+    //     event.preventDefault();
+
+    //     if(validation()){
+    //         alert("Registration successfully...")
+    //     }
+
+    //     setSubmittedData(formData)
+    // }
 
     let handleprofile=(event)=>{
         let file = event.target.files[0]
@@ -36,11 +53,14 @@ export default function AddEmployee() {
     }
 
     let addemp = (event) =>{
+
+        event.preventDefault(); 
+
         let employee = {firstname,lastname,middlename,dob,gender,caddress,paddress,adharno,
             panno,profile,email,contactno,designation,department,salary,reportingmanager,exp,
-            worklocation,status,Joiningdate,edu
+            worklocation,status,joiningdate,edu
         }
-        axios.post("http/localhost:8080/addemp",employee)
+        axios.post("http://localhost:8080/addemp",employee)
         .then((response)=>{
             if(response.data=="Employee record added sucessfully"){
                 alert(response.data)
@@ -85,7 +105,7 @@ export default function AddEmployee() {
 
             <div className="col-md-6 mb-3">
                 <label>Email</label>
-<               input type="email" 
+                <input type="email" 
                 onChange={(event)=>{setemail(event.target.value)}}
                 className="form-control"/>
             </div>
