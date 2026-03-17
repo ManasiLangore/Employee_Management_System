@@ -30,9 +30,9 @@ public class EmployeeService {
     }
 
     //delete
-    public String deleteEmployee(int id){
+    public String deleteEmployee(int empid){
 
-        repo.deleteById(id);
+        repo.deleteById(empid);
         return "Employee Deleted Successfully";
 
     }
@@ -83,7 +83,7 @@ public class EmployeeService {
     public List<EmployeeEntity>findByDesig(String designation){
         return repo.findByDesignation(designation);
     }
-    public List<EmployeeEntity>findbyempid(Integer empid){
+    public List<EmployeeEntity>findbyempid(int  empid){
         return repo.findByEmpid(empid);
     }
 }

@@ -31,10 +31,10 @@ public class EmployeeController {
     }
 
     //delete
-    @DeleteMapping("/deleteemp/{id}")
-    public String deleteEmployee(@PathVariable int id){
+    @DeleteMapping("/deleteemp/{empid}")
+    public String deleteEmployee(@PathVariable int empid){
 
-        return service.deleteEmployee(id);
+        return service.deleteEmployee(empid);
     }
 
     //update
@@ -62,7 +62,7 @@ public class EmployeeController {
         return service.findByDesig(designation);
     }
     @GetMapping("/findbyempid")
-    public List<EmployeeEntity>findbyempid(@RequestParam Integer empid){
+    public List<EmployeeEntity>findbyempid(@RequestParam int empid){
         return service.findbyempid(empid);
     }
 

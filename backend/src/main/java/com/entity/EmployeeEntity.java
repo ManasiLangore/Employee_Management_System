@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="employee")
+
 public class EmployeeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int empid;
 
     private String firstname;
     private String middlename;
@@ -36,11 +37,11 @@ public class EmployeeEntity {
     // getters and setters
 
     public int getId() {
-        return id;
+        return empid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int empid) {
+        this.empid = empid;
     }
 
     public String getFirstname() {
