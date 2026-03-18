@@ -4,81 +4,45 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   return (
     
-    <div style={{fontFamily:"Arial"}}>
-
-      {/* Hero Section */}
-      <div style={{
-        background:"#0d6efd",
-        color:"white",
-        padding:"60px",
-        textAlign:"center"
-      }}>
-        <h1>Employee Management System</h1>
-        <p>Manage employees efficiently with smart tools</p>
-
-        <Link to="/services">
-          <button style={{
-            padding:"10px 20px",
-            marginTop:"20px",
-            border:"none",
-            background:"white",
-            color:"#0d6efd",
-            cursor:"pointer",
-            fontWeight:"bold"
-          }}>
-            Explore Services
-          </button>
-        </Link>
+    <div>
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://cdn.techjockey.com/blog/wp-content/uploads/2022/12/15122450/14-Best-Employee-Management-System-for-Small-Business-in-India-_feature.jpg" class="d-block w-100" alt="..."></img>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
-
-      {/* Features Section */}
-      <div style={{padding:"40px", textAlign:"center"}}>
-        <h2>Our Features</h2>
-
-        <div style={{
-          display:"flex",
-          justifyContent:"space-around",
-          marginTop:"30px"
-        }}>
-
-          <div style={{width:"30%", padding:"20px", boxShadow:"0 0 10px gray"}}>
-            <h3>Employee Management</h3>
-            <p>Add, update and delete employee records easily.</p>
-          </div>
-
-          <div style={{width:"30%", padding:"20px", boxShadow:"0 0 10px gray"}}>
-            <h3>Attendance Tracking</h3>
-            <p>Track daily attendance and performance.</p>
-          </div>
-
-          <div style={{width:"30%", padding:"20px", boxShadow:"0 0 10px gray"}}>
-            <h3>Payroll System</h3>
-            <p>Manage salary and employee payments efficiently.</p>
-          </div>
-
-        </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://leapmax.ai/wp-content/uploads/2024/10/employee-management-system.webp" class="d-block w-100" alt="..."></img>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
       </div>
-
-      {/* Call to Action */}
-      <div style={{
-        background:"#f8f9fa",
-        padding:"40px",
-        textAlign:"center"
-      }}>
-        <h2>Start Managing Your Employees Today</h2>
-        <Link to="/contact">
-          <button style={{
-            padding:"10px 20px",
-            border:"none",
-            background:"#0d6efd",
-            color:"white",
-            cursor:"pointer"
-          }}>
-            Contact Us
-          </button>
-        </Link>
+    </div>
+    <div class="carousel-item">
+      <img src="https://techrseries.com/wp-content/uploads/2022/11/Key-Characteristics-of-an-Effective-Employee-Management-System-750x430.jpg" class="d-block w-100" alt="..."></img>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
       </div>
-
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next"  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon"  aria-hidden="true"></span>
+    <span class="visually-hidden" style={{color:"black"}}>Next</span>
+  </button>
+</div>
     </div>
   )
 }
