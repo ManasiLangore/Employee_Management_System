@@ -8,6 +8,8 @@ import Home from './Home';
 import AboutUS from './AboutUS';
 import ContactUS from './ContactUS';
 import Services from './Services';
+import EmployeeDashboard from './EmployeeDashboard';
+import ShowEmployee from './ShowEmployee';
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
       </header> */}
       <BrowserRouter>
 
-        <AdminDashboard></AdminDashboard>
+        {/*  */}
 
         <Routes>
           <Route path='/addemp'
@@ -37,6 +39,7 @@ function App() {
           <Route path='/viewemp'
             element={<ViewEmployee></ViewEmployee>}
           ></Route>
+
           <Route path='/home'
             element={<Home></Home>}
           ></Route>
@@ -48,6 +51,17 @@ function App() {
           ></Route>
           <Route path='/service'
             element={<Services></Services>}
+          ></Route>
+
+          <Route path='/admindhashboard'
+            element={<AdminDashboard></AdminDashboard>}>
+          </Route>
+
+          {/* <Route path='/showemp'
+            element={<ShowEmployee></ShowEmployee>}
+          ></Route> */}
+          <Route path='/employeedashboard'
+            element={<EmployeeDashboard></EmployeeDashboard>}
           ></Route>
         </Routes>
       </BrowserRouter>
