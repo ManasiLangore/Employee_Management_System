@@ -5,7 +5,7 @@ export default function EmployeeDashboard() {
   return (
     <div>
         <EmpNavbar></EmpNavbar>
-        <h1 className='heading'>Welcome to EMployee Dsdhboard</h1>
+        <h1 className='heading'>Welcome to Employee Dsdhboard</h1>
         <div className='bgimg'></div>
     </div>
   )

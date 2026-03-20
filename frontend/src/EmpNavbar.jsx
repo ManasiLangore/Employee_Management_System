@@ -16,16 +16,7 @@ export default function EmpNavbar() {
                         <Link to="/home" className='nav-link active'>Home</Link>
                     </li>
                     <li class="nav-item">
-                        <Link to="/showemp" className='nav-link active'>View Employee</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link to="/aboutus" className='nav-link active'>About Us</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link to="/contactus" className='nav-link active'>Contact Us</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link to="/service" className='nav-link active'>Services</Link>
+                        <Link to="/showemp" className='nav-link active'>Show Employee</Link>
                     </li>
                 </ul>
                 <form class="d-flex">

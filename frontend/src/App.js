@@ -53,13 +53,13 @@ function App() {
             element={<Services></Services>}
           ></Route>
 
-          <Route path='/admindhashboard'
+          <Route path='/admindashboard'
             element={<AdminDashboard></AdminDashboard>}>
           </Route>
 
-          {/* <Route path='/showemp'
+          <Route path='/showemp'
             element={<ShowEmployee></ShowEmployee>}
-          ></Route> */}
+          ></Route>
           <Route path='/employeedashboard'
             element={<EmployeeDashboard></EmployeeDashboard>}
           ></Route>

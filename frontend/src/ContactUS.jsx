@@ -1,17 +1,16 @@
-// import React from 'react'
 import React, { useState } from 'react'
+import HomeNavbar from './HomeNavbar'
 
 export default function ContactUS() {
 
-    const [name, setName] = useState("")
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
     alert("Message Submitted Successfully!")
-    
-    // reset form
+
     setName("")
     setEmail("")
     setMessage("")
@@ -19,76 +18,98 @@ export default function ContactUS() {
 
   return (
     <div>
-        <h1>this is Contact us page</h1>
-        <div style={{fontFamily:"Arial", padding:"40px"}}>
+      <HomeNavbar></HomeNavbar>
 
-      {/* Heading */}
-      <div style={{textAlign:"center", marginBottom:"30px"}}>
-        <h1>Contact Us</h1>
-        <p>Feel free to reach out to us</p>
+      {/* HEADER */}
+      <div className="bg-primary text-white text-center p-5">
+        <h1 className="fw-bold">Contact Us</h1>
+        <p className="lead">We would love to hear from you</p>
       </div>
 
-      {/* Form */}
-      <form 
-        onSubmit={handleSubmit}
-        style={{
-          maxWidth:"500px",
-          margin:"auto",
-          display:"flex",
-          flexDirection:"column",
-          gap:"15px"
-        }}
-      >
+      {/* FORM SECTION */}
+      <div className="container mt-5">
+        <div className="row justify-content-center">
 
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e)=>setName(e.target.value)}
-          required
-          style={{padding:"10px"}}
-        />
+          <div className="col-md-6">
+            <div className="card shadow p-4">
 
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e)=>setEmail(e.target.value)}
-          required
-          style={{padding:"10px"}}
-        />
+              <form onSubmit={handleSubmit}>
+                <h1>For any query fill following form </h1>
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}
+                    required
+                  />
+                </div>
 
-        <textarea
-          placeholder="Enter your message"
-          value={message}
-          onChange={(e)=>setMessage(e.target.value)}
-          required
-          style={{padding:"10px"}}
-        />
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
+                    required
+                  />
+                </div>
 
-        <button
-          type="submit"
-          style={{
-            padding:"10px",
-            background:"#0d6efd",
-            color:"white",
-            border:"none",
-            cursor:"pointer"
-          }}
-        >
-          Submit
-        </button>
+                <div className="mb-3">
+                  <label className="form-label">Message</label>
+                  <textarea
+                    className="form-control"
+                    rows="4"
+                    placeholder="Enter your message"
+                    value={message}
+                    onChange={(e)=>setMessage(e.target.value)}
+                    required
+                  />
+                </div>
 
-      </form>
+                <button type="submit" className="btn btn-primary w-100">
+                  Send Message
+                </button>
 
-      {/* Contact Info */}
-      <div style={{textAlign:"center", marginTop:"40px"}}>
-        <p>Email: support@ems.com</p>
-        <p>Phone: 9876543210</p>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
       </div>
 
-    </div>
-        
+      {/* CONTACT INFO */}
+      <div className="container mt-5">
+        <div className="row text-center">
+
+          <div className="col-md-4">
+            <h5>📧 Email</h5>
+            <p>support@ems.com</p>
+          </div>
+
+          <div className="col-md-4">
+            <h5>📞 Phone</h5>
+            <p>9876543210</p>
+          </div>
+
+          <div className="col-md-4">
+            <h5>📍 Location</h5>
+            <p>Pune, India</p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <div className="bg-primary text-white text-center p-3 mt-5">
+        <p>© 2026 Employee Management System</p>
+      </div>
+
     </div>
   )
 }
