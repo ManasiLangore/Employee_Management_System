@@ -10,6 +10,11 @@ import ContactUS from './ContactUS';
 import Services from './Services';
 import EmployeeDashboard from './EmployeeDashboard';
 import ShowEmployee from './ShowEmployee';
+import Register from './Register';
+import Login from './Login';
+import Profile from './Profile';
+import Attendance from './Attendance';
+import Salary from './Salary';
 
 function App() {
   return (
@@ -40,7 +45,7 @@ function App() {
             element={<ViewEmployee></ViewEmployee>}
           ></Route>
 
-          <Route path='/home'
+          <Route path='/'
             element={<Home></Home>}
           ></Route>
           <Route path='/aboutus'
@@ -63,6 +68,17 @@ function App() {
           <Route path='/employeedashboard'
             element={<EmployeeDashboard></EmployeeDashboard>}
           ></Route>
+
+          <Route path='/register'
+            element={<Register></Register>}
+          ></Route>
+
+          <Route path='/login'
+            element={<Login></Login>}
+          ></Route>
+          <Route path="/employee/profile" element={<Profile></Profile>} />
+          <Route path="/employee/attendance" element={<Attendance></Attendance>} />
+          <Route path="/employee/salary" element={<Salary></Salary>} />
         </Routes>
       </BrowserRouter>
 

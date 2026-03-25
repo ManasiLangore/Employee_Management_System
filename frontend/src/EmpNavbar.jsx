@@ -1,7 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function EmpNavbar() {
+
+    const navigate = useNavigate();
+
+    const handleLogout =() =>{
+        localStorage.removeItem("user")
+        navigate("/login")
+    };
+
   return (
     <div>
         <nav class="navbar navbar-expand-lg navbar-success bg-succes">
@@ -18,8 +26,13 @@ export default function EmpNavbar() {
                     <li class="nav-item">
                         <Link to="/showemp" className='nav-link active'>Show Employee</Link>
                     </li>
+                    <li className="nav-item" >
+                        <button className="btn btn-warning" onClick={handleLogout}>
+                            Logout
+                        </button>
+                    </li>
                 </ul>
-                <form class="d-flex">
+                <form class="d-flex" >
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
