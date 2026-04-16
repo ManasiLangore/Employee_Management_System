@@ -1,0 +1,20 @@
+node_modules/
+frontend/node_modules/
+.cache/
+
+# Build outputs
+target/
+backend/target/
+frontend/build/
+frontend/dist/
+
+# Local environment variables (keep secrets out of git)
+.env
+.env.*
+
+# Logs
+*.log
+
+# IDE (JetBrains)
+.idea/
+*.iml
