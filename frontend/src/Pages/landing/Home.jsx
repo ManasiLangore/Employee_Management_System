@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import AdminNav from './AdminNav'
+
 import HomeNavbar from './HomeNavbar'
 
 export default function Home() {

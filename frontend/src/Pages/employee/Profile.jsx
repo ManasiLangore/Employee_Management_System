@@ -12,10 +12,15 @@ export default function Profile() {
   if (!user) return <div>Loading...</div>;
 
   return (
-    <div>
-      <EmpNavbar></EmpNavbar>
-      <div className="container mt-5">
+    <div className="d-flex">
+
+      {/* LEFT → Sidebar */}
+      <EmpNavbar />
+
+      {/* RIGHT → Content */}
+      <div className="container mt-5" style={{ width: "100%" }}>
         <h2 className="mb-4">My Profile</h2>
+
         <div className="card p-4 shadow" style={{ maxWidth: "500px" }}>
           <p><strong>Name:</strong> {user.firstName} {user.lastName}</p>
           <p><strong>Email:</strong> {user.email}</p>
@@ -25,6 +30,7 @@ export default function Profile() {
           <p><strong>Username:</strong> {user.username}</p>
         </div>
       </div>
+
     </div>
   );
 }

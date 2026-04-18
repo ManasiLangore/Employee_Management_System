@@ -15,49 +15,51 @@ export default function ShowEmployee() {
       })
   },[])
 
-  
   return (
-    
-    <div className="container-fluid">
 
-      <EmpNavbar></EmpNavbar>
+  <div className="d-flex">
 
-      <div className="row">
+    {/* LEFT → Sidebar */}
+    <EmpNavbar />
 
-      {employees.map((emp)=>(
-        
-        <div className="col-md-4 mb-2" key={emp.id}>
+    {/* RIGHT → Content */}
+    <div className="container-fluid" style={{ width: "100%" }}>
 
-          <div className="card" style={{width:"18rem"}}>
+      <div className="row mt-3">
 
-            <img src={emp.profile} className="card-img-top" alt="profile"/>
+        {employees.map((emp) => (
 
-            <div className="card-body">
+          <div className="col-md-4 mb-3" key={emp.id}>
 
-              <h5 className="card-title">
-                {emp.firstname} {emp.middlename} {emp.lastname}
-              </h5>
+            <div className="card shadow" style={{ width: "18rem" }}>
 
-              <div>
+              <img src={emp.profile} className="card-img-top" alt="profile" />
+
+              <div className="card-body">
+
+                <h5 className="card-title">
+                  {emp.firstname} {emp.middlename} {emp.lastname}
+                </h5>
+
                 <p>Contact No: <strong>{emp.contactno}</strong></p>
                 <p>Email: <strong>{emp.email}</strong></p>
                 <p>Department: <strong>{emp.department}</strong></p>
                 <p>Designation: <strong>{emp.designation}</strong></p>
                 <p>Work Location: <strong>{emp.worklocation}</strong></p>
-              </div>
 
-              
+              </div>
 
             </div>
 
           </div>
 
-        </div>
-
-      ))}
+        ))}
 
       </div>
 
     </div>
-  )
+
+  </div>
+)
+  
 }

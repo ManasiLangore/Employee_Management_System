@@ -1,20 +1,20 @@
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 import './App.css';
-import AddEmployee from './AddEmployee';
-import ViewEmployee from './ViewEmployee';
-import AdminDashboard from './AdminDashboard';
+import AddEmployee from './Pages/admin/AddEmployee';
+import ViewEmployee from './Pages/admin/ViewEmployee';
+import AdminDashboard from './Pages/admin/AdminDashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import AboutUS from './AboutUS';
-import ContactUS from './ContactUS';
-import Services from './Services';
-import EmployeeDashboard from './EmployeeDashboard';
-import ShowEmployee from './ShowEmployee';
-import Register from './Register';
-import Login from './Login';
-import Profile from './Profile';
-import Attendance from './Attendance';
-import Salary from './Salary';
+import Home from './Pages/landing/Home';
+import AboutUS from './Pages/landing/AboutUS';
+import ContactUS from './Pages/landing/ContactUS';
+import Services from './Pages/landing/Services';
+import EmployeeDashboard from './Pages/employee/EmployeeDashboard';
+import ShowEmployee from './Pages/employee/ShowEmployee';
+import Register from './Pages/auth/Register';
+import Login from './Pages/auth/Login';
+import Profile from './Pages/employee/Profile';
+import Attendance from './Pages/employee/Attendance';
+import Salary from './Pages/employee/Salary';
 
 function App() {
   return (
