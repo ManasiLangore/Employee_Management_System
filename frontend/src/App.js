@@ -15,6 +15,7 @@ import Login from './Pages/auth/Login';
 import Profile from './Pages/employee/Profile';
 import Attendance from './Pages/employee/Attendance';
 import Salary from './Pages/employee/Salary';
+import AdminAttendance from './Pages/admin/AdminAttendance';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path='/viewemp'
             element={<ViewEmployee></ViewEmployee>}
           ></Route>
+          <Route path='/adminattendance' element={<AdminAttendance></AdminAttendance>}></Route>
 
           <Route path='/'
             element={<Home></Home>}

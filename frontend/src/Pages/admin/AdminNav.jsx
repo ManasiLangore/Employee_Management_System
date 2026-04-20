@@ -28,7 +28,27 @@ export default function AdminNav() {
         </li>
         <li>
           <NavLink to="/admindashboard" className={({ isActive }) => isActive ? 'active-link' : ''}>
-            <span className="icon">🏠</span> Dep
+            <span className="icon"></span> Departments
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/adminattendance" className={({ isActive }) => isActive ? 'active-link' : ''}>
+            <span className="icon"></span>Attendance
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/admindashboard" className={({ isActive }) => isActive ? 'active-link' : ''}>
+            <span className="icon"></span> Leave
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/admindashboard" className={({ isActive }) => isActive ? 'active-link' : ''}>
+            <span className="icon"></span> Payroll System
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/admindashboard" className={({ isActive }) => isActive ? 'active-link' : ''}>
+            <span className="icon"></span> Repots
           </NavLink>
         </li>
       </ul>

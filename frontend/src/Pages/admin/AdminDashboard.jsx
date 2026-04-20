@@ -4,7 +4,7 @@ import './AdminDashboard.css';
 
 
 import { Link } from 'react-router-dom';
-import { Calendar } from 'lucide-react';
+import { BellIcon, Calendar } from 'lucide-react';
 import { Users, UserPlus, Clock, Search, Bell, Layers } from 'lucide-react';//modern icons
 
 export default function AdminDashboard() {
@@ -40,6 +40,10 @@ export default function AdminDashboard() {
 
           <div className='add-emp'>
             <h6> + Add Employee</h6>
+          </div>
+
+          <div>
+            <BellIcon size={24}></BellIcon>
           </div>
           
           <div className='header-actions'>
