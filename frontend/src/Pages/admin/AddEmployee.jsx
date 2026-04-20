@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import AdminNav from './AdminNav';
 
 export default function AddEmployee() {
 
@@ -74,6 +75,18 @@ export default function AddEmployee() {
 
   return (
     <div className="container mt-4">
+
+        <AdminNav></AdminNav>
+        <main className="main-content" style={{ marginLeft: '260px' }}>
+
+        <header className="content-header">
+          <div className="search-container">
+            <input type="text" placeholder="Search anything..." />
+          </div>
+          <div className="admin-profile">
+            <strong>Admin Name</strong>
+          </div>
+        </header>
 
         <h3 className="mb-3">Add Employee</h3>
 
@@ -256,7 +269,7 @@ export default function AddEmployee() {
     <button className="btn btn-primary mt-3">Add Employee</button>
 
 </form>
-
+</main>
 </div>
   )
 }

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import AdminNav from './AdminNav'
 
 export default function ViewEmployee() {
 
@@ -33,6 +34,19 @@ export default function ViewEmployee() {
 
   return (
     <div className="container-fluid">
+
+      <AdminNav></AdminNav>
+
+       <main className="main-content" style={{ marginLeft: '260px' }}>
+
+        <header className="content-header">
+          <div className="search-container">
+            <input type="text" placeholder="Search anything..." />
+          </div>
+          <div className="admin-profile">
+            <strong>Admin Name</strong>
+          </div>
+        </header>
 
       <div className="row">
 
@@ -74,6 +88,7 @@ export default function ViewEmployee() {
       ))}
 
       </div>
+      </main>
 
     </div>
   )

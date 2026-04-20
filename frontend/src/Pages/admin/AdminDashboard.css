@@ -1,0 +1,253 @@
+/* Sidebar Styles */
+.admin-sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #1a1a1a; /* Dark professional background */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-brand {
+    padding: 30px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-brand h2 {
+    color: #2ecc71; /* Accent Green */
+    margin: 0;
+    font-size: 24px;
+}
+
+.sidebar-brand span {
+    font-size: 12px;
+    color: #777;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+.sidebar-links li a {
+    display: block;
+    padding: 15px 25px;
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.sidebar-links li a:hover, .active-link {
+    background: #2ecc7122; /* Faded green */
+    color: #2ecc71 !important;
+    border-left: 4px solid #2ecc71;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #333;
+}
+
+.logout-btn {
+    color: #ff4757;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Layout Management */
+.admin-wrapper {
+    display: flex;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    background-color: #f4f7f6;
+    min-height: 100vh;
+}
+
+/* Content Area Header (Search Box) (profile) */
+.content-header {
+    height: 80px;
+    background: #fff;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #edf2f7;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+     /* Offset for sidebar */
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: #a0aec0;
+}
+
+.search-container input {
+    border: 1px solid #e2e8f0;
+    padding: 12px 15px 12px 45px;
+    border-radius: 25px;
+    width: 400px;
+    border-radius: 10px;
+    background: #f8fafc;
+    transition: 0.3s;
+}
+
+.search-container input:focus {
+    
+    border-color: #2ecc71;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.1);
+    outline: none;
+}
+
+/*Add Employee */
+.add-emp {
+    
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.add-emp h6 {
+     border: 1px solid #090909;
+    padding: 12px 15px 12px 45px;
+    margin-left: 200px;
+    margin-top: 10px;
+    border-radius: 25px;
+    width: 200px;
+    border-radius: 10px;
+    background: #5ddd92;
+    transition: 0.3s;
+}
+
+
+
+/* Profile Section */
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: #2ecc71;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Container for text and date */
+.welcome-header {
+    display: flex;
+    justify-content: space-between; /* Pushes text left, date right */
+    align-items: flex-start;
+    padding: 30px 40px 10px 40px; /* Spacing around the hero section */
+}
+
+.welcome-text h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.welcome-text p {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* The Date Box Style */
+.date-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 10px 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.date-box span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+/* Spacing for the grid below */
+.stats-grid {
+    padding: 20px 40px; /* Aligns with the welcome section padding */
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.stat-card-white {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.stat-card-white:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.stat-data p { color: #7f8c8d; font-size: 14px; margin-bottom: 5px; }
+.stat-data h2 { font-weight: 700; color: #2c3e50; }
+
+/* Action Link */
+.card-action-link {
+    text-decoration: none;
+    color: #27ae60;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 15px;
+}
+
+.card-action-link:hover {
+    gap: 12px; /* Small animation on hover */
+}
