@@ -28,9 +28,13 @@ public class AttendanceController {
 
     //  Employee API
     @PostMapping("/punch-in/{empid}")
-public ResponseEntity<Attendance> punchIn(@PathVariable int empid) {
-    return new ResponseEntity<>(service.punchIn(empid), HttpStatus.CREATED);
-}
+    public ResponseEntity<?> punchIn(@PathVariable int empid) {
+        try {
+            return new ResponseEntity<>(service.punchIn(empid), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
     //  Admin API
     @GetMapping("/pending")

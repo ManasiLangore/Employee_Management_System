@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Attendance {
@@ -17,6 +18,37 @@ public class Attendance {
     private int empid;
     private LocalDate date;
     private LocalDateTime punchInTime;
+
+    @Transient
+    private String firstName;
+    @Transient
+    private String lastName;
+    @Transient
+    private String department;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
     private String status; //pending, present, rejected
 

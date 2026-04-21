@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.entity.Attendance;
+import com.entity.EmployeeEntity;
 import com.repository.AttendanceRepository;
+import com.repository.EmployeeRepository;
 
 @Service
 public class AttendanceService {
@@ -16,22 +18,55 @@ public class AttendanceService {
     @Autowired
     AttendanceRepository repo;
 
+    @Autowired
+    EmployeeRepository emprepo;
+
 
     // Employee action
     public Attendance punchIn(int empid){
+
+        EmployeeEntity emp = emprepo.findByEmpid(empid);
+
+        if(emp == null){
+            throw new RuntimeException("Employee not found");
+        }
+
+        // 1. Check if they already have a record for today
+        if(repo.findByEmpidAndDate(empid, LocalDate.now()).isPresent()) {
+            throw new RuntimeException("Already punched in for today!"); // Prevents duplicate rows
+        }
+        
         Attendance att = new Attendance();
 
         att.setEmpId(empid);
         att.setDate(LocalDate.now());
         att.setPunchInTime(LocalDateTime.now());
         att.setStatus("PENDING");
+        
+        att.setFirstName(emp.getFirstname());
+        att.setLastName(emp.getLastname());
+        att.setDepartment(emp.getDepartment());
 
-        return repo.save(att);
+        
+        return repo.save(att);  
     }
 
     //Admin action- view pending
     public List<Attendance> getPending(){
-        return repo.findByStatus("PENDING");
+        List<Attendance> list = repo.findByStatus("PENDING");
+
+    for(Attendance a : list){
+
+        EmployeeEntity emp = emprepo.findByEmpid(a.getEmpId());
+
+        // if(emp != null){
+        //     a.setFirstName(emp.getFirstName());
+        //     a.setLastName(emp.getLastName());
+        //     a.setDepartment(emp.getDepartment());
+        // }
+    }
+
+    return list;
     }
 
     //Admin action - approve/reject
