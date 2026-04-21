@@ -3,6 +3,8 @@ package com.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,16 +19,18 @@ import com.service.AttendanceService;
 
 @RestController
 @RequestMapping("/api/attendance")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class AttendanceController {
     @Autowired
     private AttendanceService service;
 
+    
+
     //  Employee API
-    @PostMapping("/punch-in/{empId}")
-    public Attendance punchIn(@PathVariable int empId) {
-        return service.punchIn(empId);
-    }
+    @PostMapping("/punch-in/{empid}")
+public ResponseEntity<Attendance> punchIn(@PathVariable int empid) {
+    return new ResponseEntity<>(service.punchIn(empid), HttpStatus.CREATED);
+}
 
     //  Admin API
     @GetMapping("/pending")

@@ -1,5 +1,6 @@
 package com.entity;
 
+import jakarta.persistence.Entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -7,12 +8,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int empId;
+    private int empid;
     private LocalDate date;
     private LocalDateTime punchInTime;
 
@@ -27,11 +29,11 @@ public class Attendance {
     }
 
     public int getEmpId() {
-        return empId;
+        return empid;
     }
 
     public void setEmpId(int empId) {
-        this.empId = empId;
+        this.empid = empId;
     }
 
     public LocalDate getDate() {

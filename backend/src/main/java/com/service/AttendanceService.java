@@ -5,10 +5,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.entity.Attendance;
 import com.repository.AttendanceRepository;
 
+@Service
 public class AttendanceService {
     
     @Autowired
@@ -16,10 +18,10 @@ public class AttendanceService {
 
 
     // Employee action
-    public Attendance punchIn(int empId){
+    public Attendance punchIn(int empid){
         Attendance att = new Attendance();
 
-        att.setEmpId(empId);
+        att.setEmpId(empid);
         att.setDate(LocalDate.now());
         att.setPunchInTime(LocalDateTime.now());
         att.setStatus("PENDING");
