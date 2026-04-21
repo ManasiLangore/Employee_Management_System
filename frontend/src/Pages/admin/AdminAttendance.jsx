@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Check, X, User, Calendar, Clock, AlertCircle } from "lucide-react";
 import AdminNav from "./AdminNav";
-import "./AdminDashboard.css";
+import "./AdminAttendance.css";
 
 const AdminAttendance = () => {
   const [data, setData] = useState([]);
@@ -12,6 +12,7 @@ const AdminAttendance = () => {
     setLoading(true);
     try {
       const res = await axios.get("http://localhost:8080/api/attendance/pending");
+      console.log("Backend Data:", res.data);
       setData(res.data);
     } catch (err) {
       console.error(err);
@@ -58,7 +59,10 @@ const AdminAttendance = () => {
                       <User size={24} />
                     </div>
                     <div className="user-details">
-                      <h3>Employee ID: {item.empid}</h3>
+                      <h3>Employee ID: {item.empId}</h3>
+                      <h3>{item.firstName}</h3>
+                      <h3>{item.LastName}</h3>
+                      <h3>{item.department}</h3>
                       <span className="badge-status-pending">Waiting for Approval</span>
                     </div>
                   </div>

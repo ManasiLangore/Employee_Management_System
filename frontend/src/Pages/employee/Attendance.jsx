@@ -22,15 +22,38 @@ export default function Attendance() {
     const employeeId =user?.empid;
 
     // Update the clock every second
+    // useEffect(() => {
+
+    //     // Log this to your console to confirm it's a number now
+    //     console.log("Logged in User Object:", user);
+    //     console.log("Target Employee ID:", employeeId);
+
+    //     const timer = setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
+    //     return () => clearInterval(timer);
+    // }, [user, employeeId]);
+
     useEffect(() => {
+    const checkAttendanceStatus = async () => {
+        if (!employeeId) return;
+        
+        try {
+            // You'll need to create this endpoint in Spring Boot
+            const res = await axios.get(`http://localhost:8080/api/attendance/today-status/${employeeId}`);
+            
+            // If the backend returns a record, update the UI status
+            if (res.data && res.data.status) {
+                setStatus(res.data.status); // e.g., "PENDING" or "PRESENT"
+            }
+        } catch (err) {
+            console.error("Error fetching today's status", err);
+        }
+    };
 
-        // Log this to your console to confirm it's a number now
-        console.log("Logged in User Object:", user);
-        console.log("Target Employee ID:", employeeId);
-
-        const timer = setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
-        return () => clearInterval(timer);
-    }, [user, employeeId]);
+    checkAttendanceStatus();
+    
+    const timer = setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
+    return () => clearInterval(timer);
+}, [employeeId]);
 
 
     
@@ -49,8 +72,15 @@ export default function Attendance() {
         alert("Request sent to Admin for approval!");
     } catch (err) {
         console.error("Attendance failed", err);
-        alert("Failed to send request. Make sure your Spring Boot app is running on port 8080!");
-    } finally {
+        if (err.response) {
+        alert("Server Error: " + err.response.data);
+        } else if (err.request) {
+            alert("Backend not reachable (check if running)");
+        } else {
+            alert("Error: " + err.message);
+        }
+    } 
+    finally {
         setLoading(false);
     }
 };
@@ -69,12 +99,14 @@ export default function Attendance() {
                     <button 
                         className="punch-btn" 
                         onClick={handlePunchIn} 
-                        disabled={loading}
+                        disabled={loading || status !== "NOT_MARKED"}
                     >
                         <div className="punch-icon">
                             <Fingerprint size={48} />
                         </div>
-                        <span>{loading ? "Sending..." : "Punch In"}</span>
+                        <span>
+                          {loading ? "Processing..." : status === "PENDING" ? "Awaiting Approval" : "Punch In"}
+                        </span>
                     </button>
                 )}
 
