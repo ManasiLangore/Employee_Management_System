@@ -1,0 +1,94 @@
+.employee-attendance-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.09);
+    border: 1px solid #f0f0f0; 
+}
+
+.time-display h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.time-display p {
+    color: #27ae60;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* The Big Round Punch Button */
+.punch-btn{
+    background: #f9fbfa;
+    border: 2px solid #27ae60;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.punch-btn:hover{
+    background: #27ae60;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(39,174,96,0.3);
+}
+
+.punch-btn .punch-icon {
+    color: #27ae60;
+}
+
+.punch-btn:hover .punch-icon{
+    color: white;
+}
+
+.punch-btn span{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Status Boxes */
+.status-box{
+    padding: 20px;
+    border-radius: 15px;
+    animation: fadeIn 0.5s ease;
+}
+
+.status-box.pending {
+    background: #fff9e6;
+    color: #f39c12;
+}
+
+.status-box.approved {
+    background: #e6fffa;
+    color: #27ae60;
+}
+
+.info-footer{
+    margin-top: 30px;
+    font-size: 15px;
+    color: #95a5a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
