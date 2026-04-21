@@ -1,55 +1,105 @@
 import React, { useState, useEffect } from "react";
 import EmpNavbar from "./EmpNavbar";
 import axios from "axios";
+import { Fingerprint, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import './Attendance.css';
 
 export default function Attendance() {
-  const [attendance, setAttendance] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [status, setStatus] = useState("NOT_MARKED"); // NOT_MARKED, PENDING, PRESENT
+    const [loading, setLoading] = useState(false);
+    const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
-  useEffect(() => {
-    if (user) {
-      // Example API call: replace with your backend endpoint
-      axios.get(`http://localhost:8080/employee/${user.empid}/attendance`)
-        .then(res => setAttendance(res.data))
-        .catch(err => console.error(err));
+    // Get the raw data
+    const userData = localStorage.getItem("user");
+
+    // Parse it safely
+    const user = (userData && userData !== "[object Object]") ? JSON.parse(userData) : null;
+
+    // Log this to check what your backend is actually sending
+    console.log("Parsed User Object:", user);
+
+    // Check both common naming conventions
+    const employeeId =user?.empid;
+
+    // Update the clock every second
+    useEffect(() => {
+
+        // Log this to your console to confirm it's a number now
+        console.log("Logged in User Object:", user);
+        console.log("Target Employee ID:", employeeId);
+
+        const timer = setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
+        return () => clearInterval(timer);
+    }, [user, employeeId]);
+
+
+    
+    const handlePunchIn = async () => {
+      if (!employeeId) {
+            alert("Error: Employee ID not found. Please log out and log in again.");
+            return;
+        }
+
+    setLoading(true);
+    try {
+        // We use backticks (`) and ${} to put the variable in the string
+        await axios.post(`http://localhost:8080/api/attendance/punch-in/${employeeId}`);
+        
+        setStatus("PENDING");
+        alert("Request sent to Admin for approval!");
+    } catch (err) {
+        console.error("Attendance failed", err);
+        alert("Failed to send request. Make sure your Spring Boot app is running on port 8080!");
+    } finally {
+        setLoading(false);
     }
-  }, [user]);
+};
 
   return (
-  <div className="d-flex">
+    <div className="d-flex">
+      <EmpNavbar></EmpNavbar>
+      <div className="employee-attendance-card">
+            <div className="time-display">
+                <h2>{currentTime}</h2>
+                <p>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</p>
+            </div>
 
-    {/* LEFT → Sidebar */}
-    <EmpNavbar />
+            <div className="punch-container">
+                {status === "NOT_MARKED" && (
+                    <button 
+                        className="punch-btn" 
+                        onClick={handlePunchIn} 
+                        disabled={loading}
+                    >
+                        <div className="punch-icon">
+                            <Fingerprint size={48} />
+                        </div>
+                        <span>{loading ? "Sending..." : "Punch In"}</span>
+                    </button>
+                )}
 
-    {/* RIGHT → Content */}
-    <div className="container mt-5" style={{ width: "100%" }}>
-      <h2 className="mb-4">My Attendance</h2>
+                {status === "PENDING" && (
+                    <div className="status-box pending">
+                        <Clock size={32} />
+                        <h3>Request Sent</h3>
+                        <p>Waiting for Admin approval...</p>
+                    </div>
+                )}
 
-      <table className="table table-striped shadow">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
+                {status === "PRESENT" && (
+                    <div className="status-box approved">
+                        <CheckCircle size={32} />
+                        <h3>Attendance Marked</h3>
+                        <p>You are marked Present for today.</p>
+                    </div>
+                )}
+            </div>
 
-        <tbody>
-          {attendance.length > 0 ? (
-            attendance.map((a, index) => (
-              <tr key={index}>
-                <td>{a.date}</td>
-                <td>{a.status}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="2">No attendance records found</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+            <div className="info-footer">
+                <AlertCircle size={14} />
+                <span>Punch-in requests are sent to HR for verification.</span>
+            </div>
+        </div>
     </div>
-
-  </div>
-);
+    );
 }
