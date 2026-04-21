@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [loginData, setLoginData] = useState({ username: "", password: "" });
@@ -91,7 +91,7 @@ export default function Login() {
         </form>
 
         <div className="text-center mt-3">
-          Don't have an account? <a href="/register">Sign up</a>
+          Don't have an account? <Link to='/register'>Sign up</Link>
         </div>
       </div>
     </div>
