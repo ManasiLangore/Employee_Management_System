@@ -13,5 +13,9 @@ public interface AttendanceRepository extends JpaRepository<Attendance, Integer>
     List<Attendance> findByStatus(String status);
 
     Optional<Attendance> findByEmpidAndDate(int empid, LocalDate date);
+
+    List<Attendance> findByEmpid(int empid);
+
+    List<Attendance> findByEmpidOrderByDateDesc(int empid);
     
 }
