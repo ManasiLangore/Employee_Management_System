@@ -59,10 +59,10 @@ const AdminAttendance = () => {
                       <User size={24} />
                     </div>
                     <div className="user-details">
-                      <h3>Employee ID: {item.empId}</h3>
-                      <h3>{item.firstName}</h3>
-                      <h3>{item.LastName}</h3>
-                      <h3>{item.department}</h3>
+                      <h3>Name : {item.firstname} {item.lastname}</h3>
+                      <p className="emp-info-text">
+                        Employee ID: {item.empId} | {item.department}
+                      </p>
                       <span className="badge-status-pending">Waiting for Approval</span>
                     </div>
                   </div>

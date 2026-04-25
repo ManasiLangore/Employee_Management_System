@@ -44,6 +44,12 @@
     color: #2d3436;
 }
 
+.emp-info-text {
+    font-size: 14px;
+    color: #7f8c8d; /* Muted grey color */
+    margin: 2px 0 8px 0; /* Small space around the text */
+}
+
 .badge-status-pending {
     font-size: 11px;
     color: #f39c12;

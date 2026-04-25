@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EmpNavbar from "./EmpNavbar";
 import axios from "axios";
-import { Fingerprint, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { Fingerprint, Clock, CheckCircle, AlertCircle, List, Calendar } from 'lucide-react';
 import './Attendance.css';
 
 export default function Attendance() {
@@ -85,9 +85,26 @@ export default function Attendance() {
     }
 };
 
+
+
+    const [attendanceHistory, setAttendanceHistory] = useState([]);
+
+    const fetchAttendanceData = async () => {
+        try {
+            const res = await axios.get(`http://localhost:8080/api/attendance/employee/${employeeId}`);
+            // Use the new setter name
+            setAttendanceHistory(res.data); 
+            
+            // ... rest of your logic
+        } catch (err) {
+            console.error("Error", err);
+        }
+    };
+
   return (
     <div className="d-flex">
       <EmpNavbar></EmpNavbar>
+      <div className="attendance-container">
       <div className="employee-attendance-card">
             <div className="time-display">
                 <h2>{currentTime}</h2>
@@ -131,6 +148,51 @@ export default function Attendance() {
                 <AlertCircle size={14} />
                 <span>Punch-in requests are sent to HR for verification.</span>
             </div>
+        </div>
+
+        {/* SECTION 2: HISTORY LIST */}
+            <div className="history-container-pro">
+                <div className="history-header-main">
+                    <h3>Activity Log</h3>
+                    <span className="count-badge">{attendanceHistory.length} Days</span>
+                </div>
+
+                <div className="timeline-wrapper">
+                    {attendanceHistory.length > 0 ? (
+                    attendanceHistory.map((item) => (
+                        <div className={`timeline-row ${item.status.toLowerCase()}`} key={item.id}>
+                        {/* Left: Date & Day */}
+                        <div className="date-block">
+                            <span className="day-text">
+                            {new Date(item.date).toLocaleDateString('en-US', { weekday: 'short' })}
+                            </span>
+                            <span className="date-text">
+                            {new Date(item.date).toLocaleDateString('en-US', { day: '2-digit', month: 'short' })}
+                            </span>
+                        </div>
+
+                        {/* Center: Time Info */}
+                        <div className="time-details">
+                            <p className="time-label">Clock In</p>
+                            <p className="actual-time">09:15 AM</p> {/* Replace with dynamic data */}
+                        </div>
+
+                        {/* Right: Symbol/Badge */}
+                        <div className="status-symbol-box">
+                            {item.status === "PRESENT" && <div className="symbol present">✔</div>}
+                            {item.status === "PENDING" && <div className="symbol pending">!</div>}
+                            {item.status === "REJECTED" && <div className="symbol rejected">✖</div>}
+                            <span className="status-label-mini">{item.status}</span>
+                        </div>
+                        </div>
+                    ))
+                    ) : (
+                    <div className="empty-state-simple">
+                        <p>Your history is empty. Start by punching in!</p>
+                    </div>
+                    )}
+                </div>
+                </div>
         </div>
     </div>
     );

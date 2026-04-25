@@ -1,7 +1,17 @@
+.attendance-container{
+    display: flex;
+    flex-direction: row; /* Side by side */
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+    align-items: stretch; /* Makes both cards the same height */
+    width: 100%;
+}
+
 .employee-attendance-card {
     background: white;
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     max-width: 500px;
     margin: 50px auto;
@@ -38,7 +48,8 @@
     justify-content: center;
     gap: 10px;
     transition: all 0.3s ease;
-    margin: 0 auto;
+    margin: 20px auto;
+    padding: 20px 40px;
 }
 
 .punch-btn:hover{
@@ -91,4 +102,98 @@
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+.history-container-pro {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.history-header-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.count-badge {
+    background: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+}
+
+/* Timeline Row Styling */
+.timeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 12px;
+    border-left: 5px solid #cbd5e1; /* Default grey border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+
+.timeline-row:hover {
+    transform: translateX(5px);
+}
+
+/* Color Coding based on Status */
+.timeline-row.present { border-left-color: #27ae60; background: #f0fff4; }
+.timeline-row.pending { border-left-color: #f39c12; background: #fffaf0; }
+.timeline-row.rejected { border-left-color: #e74c3c; background: #fff5f5; }
+
+/* Date Block */
+.date-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.day-text {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.date-text {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Status Symbol Box */
+.status-symbol-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.symbol {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.symbol.present { background: #27ae60; }
+.symbol.pending { background: #f39c12; }
+.symbol.rejected { background: #e74c3c; }
+
+.status-label-mini {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
