@@ -36,6 +36,45 @@ public class AttendanceController {
         }
     }
 
+    // @GetMapping("/employee/{empid}")
+    // public ResponseEntity<List<Attendance>> getEmployeeHistory (@PathVariable int empid){
+    //     try{
+    //         List<Attendance> history = service.getAttendaneByEmployeeId(empid);
+    //         return new ResponseEntity<>(history, HttpStatus.Ok);
+    //     }
+    //     catch(Exception e){
+    //         return  new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
+
+    // @GetMapping("/today-status/{empid}")
+    //     public ResponseEntity<?> getTodayStatus(@PathVariable int empid) {
+    //         try {
+    //             Attendance attendance = service.getTodayStatus(empid); 
+    //             // This should return the attendance record for the current date
+    //             return new ResponseEntity<>(attendance, HttpStatus.OK);
+    //         } catch (Exception e) {
+    //             return new ResponseEntity<>(null, HttpStatus.OK);
+    //         }
+    //     }
+
+        // 1. Get History (Fixed typo in method name and HttpStatus)
+    @GetMapping("/employee/{empid}")
+    public ResponseEntity<List<Attendance>> getHistory(@PathVariable int empid) {
+        List<Attendance> history = service.getAttendanceByEmployeeId(empid);
+        return new ResponseEntity<>(history, HttpStatus.OK);
+    }
+
+    // 2. Get Today's Status (Removed duplicate and fixed ambiguous null)
+    @GetMapping("/today-status/{empid}")
+    public ResponseEntity<?> getTodayStatus(@PathVariable int empid) {
+        Attendance attendance = service.getTodayStatus(empid);
+        if (attendance == null) {
+            return ResponseEntity.ok("{}"); // Return empty JSON string instead of null
+        }
+        return ResponseEntity.ok(attendance);
+    }
+
     //  Admin API
     @GetMapping("/pending")
     public List<Attendance> getPending() {
