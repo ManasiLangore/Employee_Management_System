@@ -75,4 +75,14 @@ public class AttendanceService {
         att.setStatus(status);
         return repo.save(att);
     }
+
+    public List<Attendance> getAttendanceByEmployeeId(int empid) {
+        return repo.findByEmpid(empid);
+    }
+
+    public Attendance getTodayStatus(int empid) {
+        // This assumes you added findByEmpidAndDate to your Repo
+        return repo.findByEmpidAndDate(empid, java.time.LocalDate.now())
+                                   .orElse(null);
+    }
 }
