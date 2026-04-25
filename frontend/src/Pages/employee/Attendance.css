@@ -1,22 +1,32 @@
 .attendance-container{
     display: flex;
-    flex-direction: row; /* Side by side */
-    justify-content: center;
+    flex-direction: row;
     gap: 30px;
     padding: 40px;
-    align-items: stretch; /* Makes both cards the same height */
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #f4f7fe; /* Light modern background */
+    min-height: 100vh;
     width: 100%;
 }
 
-.employee-attendance-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
+.employee-attendance-card, 
+.history-container-pro {
+    background: #ffffff;
+    /* padding: 30px;
     max-width: 500px;
-    margin: 50px auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.09);
-    border: 1px solid #f0f0f0; 
+    margin: 50px auto; */
+    border-radius: 24px; /* Matching rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); /* Soft shadow */
+    border: 1px solid #edf2f7;
+    transition: transform 0.3s ease;
+}
+
+.employee-attendance-card {
+    flex: 1;
+    max-width: 400px;
+    padding: 40px 24px;
+    text-align: center; 
 }
 
 .time-display h2 {
@@ -105,41 +115,55 @@
 }
 
 .history-container-pro {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
+    flex: 1.5;
+    max-width: 650px;
+    padding: 32px;
+    height: auto;
+    max-height: 80vh; /* Scrollable if too long */
+    overflow-y: auto;
 }
 
 .history-header-main {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.history-header-main h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
 }
 
 .count-badge {
-    background: #f1f5f9;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #64748b;
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 4px 14px;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 /* Timeline Row Styling */
 .timeline-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px;
+    padding: 18px;
     margin-bottom: 12px;
-    background: #fff;
-    border-radius: 12px;
-    border-left: 5px solid #cbd5e1; /* Default grey border */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    transition: transform 0.2s;
+    border-radius: 16px;
+    background: #f8fafc; /* Slightly different shade than card bg */
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
 }
 
 .timeline-row:hover {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     transform: translateX(5px);
 }
 
@@ -147,24 +171,58 @@
 .timeline-row.present { border-left-color: #27ae60; background: #f0fff4; }
 .timeline-row.pending { border-left-color: #f39c12; background: #fffaf0; }
 .timeline-row.rejected { border-left-color: #e74c3c; background: #fff5f5; }
+.timeline-row.absent {
+    border-left: 4px solid #94a3b8; /* Grey for absent */
+    opacity: 0.8;
+}
+
+.symbol.absent {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* Red style for Rejected (often used as Absent) */
+.timeline-row.rejected {
+    border-left: 4px solid #ef4444; 
+    background: #fff5f5;
+}
 
 /* Date Block */
 .date-block {
     display: flex;
     flex-direction: column;
+    min-width: 90px;
 }
 
 .day-text {
-    font-size: 11px;
-    font-weight: 800;
+    font-size: 0.7rem;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: #94a3b8;
+    font-weight: 700;
 }
 
 .date-text {
     font-size: 15px;
     font-weight: 700;
     color: #1e293b;
+}
+
+.time-details {
+    flex-grow: 1;
+    padding-left: 24px;
+}
+
+.time-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.actual-time {
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
 }
 
 /* Status Symbol Box */
@@ -176,15 +234,13 @@
 }
 
 .symbol {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
+    font-size: 0.8rem;
     margin-bottom: 4px;
 }
 
@@ -193,7 +249,21 @@
 .symbol.rejected { background: #e74c3c; }
 
 .status-label-mini {
-    font-size: 9px;
-    font-weight: 700;
+    font-size: 0.65rem;
+    font-weight: 800;
     text-transform: uppercase;
+    color: #64748b;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .attendance-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .employee-attendance-card, .history-container-pro {
+        max-width: 100%;
+        width: 100%;
+    }
 }

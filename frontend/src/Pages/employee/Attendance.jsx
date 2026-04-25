@@ -37,6 +37,7 @@ export default function Attendance() {
         if (!employeeId) return;
         
         try {
+            // 1. Fetch today's status
             // You'll need to create this endpoint in Spring Boot
             const res = await axios.get(`http://localhost:8080/api/attendance/today-status/${employeeId}`);
             
@@ -44,7 +45,14 @@ export default function Attendance() {
             if (res.data && res.data.status) {
                 setStatus(res.data.status); // e.g., "PENDING" or "PRESENT"
             }
-        } catch (err) {
+
+            //2 Fetch history data
+            fetchAttendanceData();
+            // const historyRes = await axios.get(`http://localhost:8080/api/attendance/employee/${employeeId}`);
+            // setAttendanceHistory(historyRes.data);
+
+        } 
+        catch (err) {
             console.error("Error fetching today's status", err);
         }
     };
@@ -174,7 +182,9 @@ export default function Attendance() {
                         {/* Center: Time Info */}
                         <div className="time-details">
                             <p className="time-label">Clock In</p>
-                            <p className="actual-time">09:15 AM</p> {/* Replace with dynamic data */}
+                            <p className="actual-time">
+                                {item.punchInTime ? item.punchInTime : "--:--"}
+                            </p> {/* Replace with dynamic data */}
                         </div>
 
                         {/* Right: Symbol/Badge */}
@@ -182,6 +192,7 @@ export default function Attendance() {
                             {item.status === "PRESENT" && <div className="symbol present">✔</div>}
                             {item.status === "PENDING" && <div className="symbol pending">!</div>}
                             {item.status === "REJECTED" && <div className="symbol rejected">✖</div>}
+                            {item.status === "ABSENT" && <div className="symbol absent">—</div>}
                             <span className="status-label-mini">{item.status}</span>
                         </div>
                         </div>
