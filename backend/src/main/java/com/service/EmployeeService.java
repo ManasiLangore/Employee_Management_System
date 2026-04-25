@@ -83,7 +83,10 @@ public class EmployeeService {
     public List<EmployeeEntity>findByDesig(String designation){
         return repo.findByDesignation(designation);
     }
-    public List<EmployeeEntity>findbyempid(int  empid){
-        return repo.findByEmpid(empid);
+    // public List<EmployeeEntity>findbyempid(int  empid){
+    //     return repo.findByEmpid(empid);
+    // }
+    public EmployeeEntity findbyempid(int id){
+        return repo.findById(id).orElse(null);
     }
 }

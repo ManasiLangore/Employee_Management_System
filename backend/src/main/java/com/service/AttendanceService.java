@@ -25,7 +25,7 @@ public class AttendanceService {
     // Employee action
     public Attendance punchIn(int empid){
 
-        EmployeeEntity emp = emprepo.findByEmpid(empid);
+        EmployeeEntity emp = emprepo.findById(empid).orElse(null);
 
         if(emp == null){
             throw new RuntimeException("Employee not found");
@@ -43,8 +43,8 @@ public class AttendanceService {
         att.setPunchInTime(LocalDateTime.now());
         att.setStatus("PENDING");
         
-        att.setFirstName(emp.getFirstname());
-        att.setLastName(emp.getLastname());
+        att.setFirstname(emp.getFirstname());;
+        att.setLastname(emp.getLastname());
         att.setDepartment(emp.getDepartment());
 
         
@@ -57,13 +57,13 @@ public class AttendanceService {
 
     for(Attendance a : list){
 
-        EmployeeEntity emp = emprepo.findByEmpid(a.getEmpId());
+        EmployeeEntity emp = emprepo.findById(a.getEmpId()).orElse(null);
 
-        // if(emp != null){
-        //     a.setFirstName(emp.getFirstName());
-        //     a.setLastName(emp.getLastName());
-        //     a.setDepartment(emp.getDepartment());
-        // }
+        if(emp != null){
+            a.setFirstname(emp.getFirstname());
+            a.setLastname(emp.getLastname());
+            a.setDepartment(emp.getDepartment());
+        }
     }
 
     return list;

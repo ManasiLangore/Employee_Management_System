@@ -61,11 +61,15 @@ public class EmployeeController {
     public List<EmployeeEntity>findbydesig(@RequestParam String designation){
         return service.findByDesig(designation);
     }
+    // @GetMapping("/findbyempid")
+    // public List<EmployeeEntity>findbyempid(@RequestParam int empid){
+    //     return service.findbyempid(empid);
+    // }
+
     @GetMapping("/findbyempid")
-    public List<EmployeeEntity>findbyempid(@RequestParam int empid){
+    public EmployeeEntity findbyempid(@RequestParam int empid){
         return service.findbyempid(empid);
     }
-
 
 
 }

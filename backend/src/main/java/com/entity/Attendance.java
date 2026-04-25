@@ -20,26 +20,26 @@ public class Attendance {
     private LocalDateTime punchInTime;
 
     @Transient
-    private String firstName;
+    private String firstname;
     @Transient
-    private String lastName;
+    private String lastname;
     @Transient
     private String department;
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getDepartment() {

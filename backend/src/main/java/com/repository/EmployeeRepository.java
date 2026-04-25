@@ -16,7 +16,7 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Intege
 
     List<EmployeeEntity> findByDesignation(String designation);
 
-    EmployeeEntity findByEmpid(int empid);
+    // EmployeeEntity findByid(int empid);
 
 
 }
