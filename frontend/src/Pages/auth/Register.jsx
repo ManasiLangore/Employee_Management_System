@@ -12,6 +12,7 @@ export default function Register() {
     gender: "",
     email: "",
     contactNo: "",
+    department: "",
     role: "",
     empid: "",
     username: "",
@@ -96,6 +97,20 @@ export default function Register() {
               onChange={handleChange}
               required
             />
+          </div>
+
+           <div className="mb-3">
+            <select
+                className="form-select"
+                name="department"
+                onChange={handleChange}
+                required
+            >
+                <option value="">Select Department</option>
+                <option value="developer">Devloper</option>
+                <option value="testing">Testing</option>
+                <option value="project_manager">Project_Manager</option>
+            </select>
           </div>
 
           <div className="mb-3">

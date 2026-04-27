@@ -34,6 +34,10 @@ export default function EmpNavbar() {
         </li>
 
         <li className="nav-item">
+          <Link to="/employee/leave" className='nav-link text-white'>Leave</Link>
+        </li>
+
+        <li className="nav-item">
           <Link to="/employee/salary" className='nav-link text-white'>Salary</Link>
         </li>
 

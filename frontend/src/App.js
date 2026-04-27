@@ -16,6 +16,8 @@ import Profile from './Pages/employee/Profile';
 import Attendance from './Pages/employee/Attendance';
 import Salary from './Pages/employee/Salary';
 import AdminAttendance from './Pages/admin/AdminAttendance';
+import ApplyLeave from './Pages/employee/ApplyLeave';
+import AprroveLeave from './Pages/admin/AprroveLeave';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
             element={<ViewEmployee></ViewEmployee>}
           ></Route>
           <Route path='/adminattendance' element={<AdminAttendance></AdminAttendance>}></Route>
+
+          <Route path='/admin/leave' element={<AprroveLeave></AprroveLeave>}></Route>
 
           <Route path='/'
             element={<Home></Home>}
@@ -80,6 +84,7 @@ function App() {
           ></Route>
           <Route path="/employee/profile" element={<Profile></Profile>} />
           <Route path="/employee/attendance" element={<Attendance></Attendance>} />
+          <Route path='/employee/leave' element={<ApplyLeave></ApplyLeave>}></Route>
           <Route path="/employee/salary" element={<Salary></Salary>} />
         </Routes>
       </BrowserRouter>
