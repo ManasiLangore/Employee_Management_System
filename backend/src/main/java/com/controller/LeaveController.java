@@ -26,8 +26,8 @@ public class LeaveController {
     private LeaveService leaveService;
 
     @PostMapping("/apply")
-    public ResponseEntity<LeaveEntity> apply(@RequestBody LeaveEntity request) {
-        return ResponseEntity.ok(leaveService.applyLeave(request));
+    public ResponseEntity<LeaveEntity> apply(@RequestBody LeaveEntity leave) {
+        return ResponseEntity.ok(leaveService.applyLeave(leave));
     }
 
     //for admin

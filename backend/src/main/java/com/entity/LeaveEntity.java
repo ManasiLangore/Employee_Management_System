@@ -20,7 +20,7 @@ public class LeaveEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "empid", nullable = false)
-    private EmployeeEntity empid;
+    private EmployeeEntity employee;
 
     private LocalDate startDate;
     private LocalDate endDate;
@@ -46,12 +46,12 @@ public class LeaveEntity {
         this.id = id;
     }
 
-    public EmployeeEntity getEmpid() {
-        return empid;
+    public EmployeeEntity getEmployee() {
+        return employee;
     }
 
-    public void setEmpid(EmployeeEntity empid) {
-        this.empid = empid;
+    public void setEmployee(EmployeeEntity employee) {
+        this.employee = employee;
     }
 
     public LocalDate getStartDate() {

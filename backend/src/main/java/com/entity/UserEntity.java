@@ -15,6 +15,8 @@ public class UserEntity {
     private String gender;
     private String email;
     private long contactNo;
+    
+    private String department;
 
     private String role;
 
@@ -77,6 +79,15 @@ public class UserEntity {
     public void setContactNo(long contactNo) {
         this.contactNo = contactNo;
     }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
 
     public String getRole() {
         return role;
