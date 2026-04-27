@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import EmpNavbar from './EmpNavbar';
 
-export default function ApplyLeave({empid}) {
+export default function ApplyLeave() {
+
+    // 1. Get the JSON string from localStorage
+    const userString = localStorage.getItem("user");
+
+    // 2. Parse the string back into a JavaScript object
+    const user = userString ? JSON.parse(userString) : null;
+
+    // 3. Get the empid from that object (matching your EmployeeEntity field name)
+    const empid = user ? user.empid : null;
 
     const [formData, setFormData] = useState({
         startDate: '',
@@ -17,11 +26,16 @@ export default function ApplyLeave({empid}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!empid) {
+            alert("Employee ID is missing!");
+            return;
+        }
         
         // Prepare the payload to match your Spring Boot Entity
         const payload = {
             ...formData,
-            employee: { id: empid}, // Linking to the employee object
+            employee: { empid: parseInt(empid)}, // Linking to the employee object
             status: 'PENDING'
         };
 
@@ -29,6 +43,7 @@ export default function ApplyLeave({empid}) {
             await axios.post('http://localhost:8080/api/leaves/apply', payload);
             alert("Leave application submitted successfully!");
         } catch (error) {
+            console.error("Payload sent:", payload);
             alert("Error: " + error.response?.data?.message || "Server error");
         }
     };

@@ -46,7 +46,7 @@ export default function AprroveLeave() {
                     {leaves.map((leave) => (
                         <tr key={leave.id}>
                             <td>
-                                <strong>{leave.employee?.name}</strong><br/>
+                                <strong>{leave.employee?.firstname} {leave.employee?.lastname}</strong><br/>
                                 <small className="text-muted">{leave.employee?.department}</small>
                             </td>
                             <td>{leave.leaveType}</td>
