@@ -27,7 +27,7 @@ public class LeaveEntity {
     private String leaveType;
     private String reason;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)       // This ensures "APPROVED" is saved as text
     private LeaveStatus status = LeaveStatus.PENDING;
 
     public enum LeaveStatus{
@@ -102,6 +102,7 @@ public class LeaveEntity {
         this.adminRemark = adminRemark;
     }
 
+    
     
     
 }

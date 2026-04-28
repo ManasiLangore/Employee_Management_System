@@ -12,10 +12,11 @@ import com.entity.LeaveEntity.LeaveStatus;
 
 @Repository
 public interface LeaveRepository extends JpaRepository<LeaveEntity, Integer>{
-    Optional<LeaveEntity> findByEmployee_Empid(int empid);
+    // Optional<LeaveEntity> findByEmployee_Empid(int empid);
 
     List<LeaveEntity> findByStatus(LeaveStatus status);
 
-    
+    // This looks into the 'employee' object and finds the 'empid' field
+    List<LeaveEntity> findByEmployee_Empid(int empid);
     
 }

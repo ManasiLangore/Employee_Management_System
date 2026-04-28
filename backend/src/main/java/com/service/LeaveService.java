@@ -19,17 +19,20 @@ public class LeaveService {
 private EmployeeRepository employeeRepo; // Add this if not already there
 
 public LeaveEntity applyLeave(LeaveEntity leave) {
-    // 1. Get the ID from the incoming payload
-    int empId = leave.getEmployee().getId();
+    // Check if the employee object is null first to avoid a NullPointerException
+    if (leave.getEmployee() == null) {
+        throw new RuntimeException("Backend Error: Employee object is null in the request!");
+    }
+
+    // This calls the getEmpid() inside EmployeeEntity
+    int idFromReact = leave.getEmployee().getEmpid(); 
     
-    // 2. Fetch the REAL, saved Employee from the database
-    EmployeeEntity existingEmployee = employeeRepo.findById(empId)
-        .orElseThrow(() -> new RuntimeException("Employee not found with id: " + empId));
+    System.out.println("Backend received ID: " + idFromReact); // This will help us debug
+
+    EmployeeEntity existingEmployee = employeeRepo.findById(idFromReact)
+        .orElseThrow(() -> new RuntimeException("Employee not found with id: " + idFromReact));
     
-    // 3. Attach the REAL employee to the leave
     leave.setEmployee(existingEmployee);
-    
-    // 4. Now save the leave
     return leaveRepo.save(leave);
 }
 
@@ -47,17 +50,24 @@ public LeaveEntity applyLeave(LeaveEntity leave) {
 
     // Admin action: Approve or Reject
     public LeaveEntity updateLeaveStatus(int empid, LeaveStatus status, String remarks){
-        LeaveEntity leave =  leaveRepo.findByEmployee_Empid(empid)
-            .orElseThrow(() -> new RuntimeException("Leave record not found"));
+        // 1. Find the specific leave by its OWN ID (1, 2, 3...)
+        LeaveEntity leave = leaveRepo.findById(empid)
+            .orElseThrow(() -> new RuntimeException("Leave record not found with id: " + empid));
 
-            leave.setStatus(status);
-            leave.setAdminRemark(remarks);
+        // 2. Update the fields
+        leave.setStatus(status);
+        leave.setAdminRemark(remarks);
 
-            return leaveRepo.save(leave);
+        // 3. Save the update
+        return leaveRepo.save(leave);
     }
 
     // Get all leaves for Admin view
     public List<LeaveEntity> getAllLeaves() {
         return leaveRepo.findAll();
     }
+
+    public List<LeaveEntity> getLeavesByEmployee(int empid) {
+    return leaveRepo.findByEmployee_Empid(empid);
+}
 }
