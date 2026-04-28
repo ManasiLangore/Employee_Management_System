@@ -37,11 +37,29 @@ public class LeaveController {
     }
 
     @PutMapping("/{id}/status")
-    public ResponseEntity<LeaveEntity> updateStatus(
-            @PathVariable int empid,
-            @RequestParam LeaveStatus status,
-            @RequestParam(required = false) String remarks) {
-        return ResponseEntity.ok(leaveService.updateLeaveStatus(empid, status, remarks));
+    public ResponseEntity<?> updateStatus(
+        @PathVariable("id") int id, 
+        @RequestParam("status") String statusStr, // Receive as String first
+        @RequestParam("remarks") String remarks
+    ) {
+        try {
+            // Convert the String from React ("REJECTED") to your Java Enum
+            LeaveEntity.LeaveStatus status = LeaveEntity.LeaveStatus.valueOf(statusStr.toUpperCase());
+            
+            LeaveEntity updatedLeave = leaveService.updateLeaveStatus(id, status, remarks);
+            return ResponseEntity.ok(updatedLeave);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Invalid status value: " + statusStr);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error: " + e.getMessage());
+        }
+    }
+
+
+    @GetMapping("/employee/{empid}")
+    public ResponseEntity<List<LeaveEntity>> getEmployeeLeaves(@PathVariable int empid) {
+        List<LeaveEntity> leaves = leaveService.getLeavesByEmployee(empid);
+        return ResponseEntity.ok(leaves);
     }
     
 }
