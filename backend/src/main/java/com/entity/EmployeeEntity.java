@@ -36,11 +36,11 @@ public class EmployeeEntity {
 
     // getters and setters
 
-    public int getId() {
+    public int getEmpid() {
         return empid;
     }
 
-    public void setId(int empid) {
+    public void setEmpid(int empid) {
         this.empid = empid;
     }
 
