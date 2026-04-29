@@ -37,6 +37,7 @@ const AdminAttendance = () => {
   return (
     <div className="admin-wrapper">
       <AdminNav />
+      
       <main className="main-content">
         <div className="dashboard-body p-4">
           
