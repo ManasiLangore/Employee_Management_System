@@ -66,6 +66,18 @@ export default function EmployeeDashboard() {
                 </div>
               </div>
 
+              {/* Leave */}
+              <div className="col-md-3">
+                <div className="card text-center"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/employee/leave")}
+                >
+                  <div className="card-body">
+                    <h5>Leave</h5>
+                  </div>
+                </div>
+              </div>
+
               {/* Salary */}
               <div className="col-md-3">
                 <div className="card text-center"
