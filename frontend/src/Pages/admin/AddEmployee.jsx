@@ -77,9 +77,8 @@ export default function AddEmployee() {
     <div className="container mt-4">
 
         <AdminNav></AdminNav>
-        <main className="main-content" style={{ marginLeft: '260px' }}>
-
-        <header className="content-header">
+        <div className='header' style={{marginLeft:'260px'}}>
+            <header className="content-header">
           <div className="search-container">
             <input type="text" placeholder="Search anything..." />
           </div>
@@ -87,6 +86,10 @@ export default function AddEmployee() {
             <strong>Admin Name</strong>
           </div>
         </header>
+        </div>
+        <main className="main-content" style={{ marginLeft: '260px' }}>
+
+        
 
         <h3 className="mb-3">Add Employee</h3>
 
