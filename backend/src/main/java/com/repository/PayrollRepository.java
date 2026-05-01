@@ -10,7 +10,7 @@ import com.entity.PayrollEntity;
 
 @Repository
 public interface PayrollRepository extends JpaRepository<PayrollEntity, Long> {
-    List<PayrollEntity> findByEmployeeId(Long employeeId);
+    List<PayrollEntity> findByEmployeeEmpid(int empid);
 
-    Optional<PayrollEntity> findByEmployeeIdAndPayPeriod(Long employeeId, String payPeriod);
+    Optional<PayrollEntity> findByEmployeeEmpidAndPayPeriod(int empid, String payPeriod);
 }
