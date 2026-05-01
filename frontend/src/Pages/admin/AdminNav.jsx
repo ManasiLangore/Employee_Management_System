@@ -42,7 +42,7 @@ export default function AdminNav() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/admindashboard" className={({ isActive }) => isActive ? 'active-link' : ''}>
+          <NavLink to="/admin/payroll" className={({ isActive }) => isActive ? 'active-link' : ''}>
             <span className="icon"></span> Payroll System
           </NavLink>
         </li>
