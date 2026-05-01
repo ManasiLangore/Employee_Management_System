@@ -38,7 +38,7 @@ public class PayrollController {
 
     // Employee: Get my salary history
     @GetMapping("/my-history/{employeeId}")
-    public List<PayrollEntity> getMyPayroll(@PathVariable Long employeeId) {
-        return payrollRepository.findByEmployeeId(employeeId);
+    public List<PayrollEntity> getMyPayroll(@PathVariable int employeeId) {
+        return payrollRepository.findByEmployeeEmpid(employeeId);
     }
 }
