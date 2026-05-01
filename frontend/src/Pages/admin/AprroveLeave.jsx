@@ -29,23 +29,36 @@ export default function AprroveLeave() {
 
 
   return (
-    <div className="container-fluid"> {/* Changed to fluid to prevent horizontal scroll */}
+    <div className='d-flex bg-light' style={{ minHeight: '100vh' }}>
     
-            <AdminNav></AdminNav>
+        {/* 1. Sidebar - Fixed width */}
+        <div style={{ width: '260px', position: 'fixed', height: '100vh', zIndex: 100 }}>
+            <AdminNav />
+        </div>
+
+        {/* 2. Main Content Area - Pushed to the right by sidebar width */}
+      <div className="flex-grow-1" style={{ marginLeft: '260px' }}>
             
-            <div className='header' style={{marginLeft:'260px'}}>
-                <header className="content-header">
-                    <div className="search-container">
-                        <input type="text" placeholder="Search anything..." />
-                    </div>
-                    <div className="admin-profile">
-                        <strong>Admin Name</strong>
-                    </div>
-                </header>
+         {/* Top Header Section */}
+        
+        <header className="content-header">
+          <div className="search-container">
+            <input type="text" placeholder="Search anything..." />
+          </div>
+          <div className="admin-profile d-flex align-items-center">
+            <div className="me-3 text-end">
+              <div className="fw-bold mb-0">Admin Name</div>
+              
             </div>
+            <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
+              A
+            </div>
+          </div>
+        </header>
+           
 
             {/* Fixed the tags here: removed the extra </div> and kept the content INSIDE <main> */}
-            <main className="main-content" style={{ marginLeft: '260px', padding: '20px' }}>
+            <main className="main-content" style={{ marginLeft: '0px', padding: '20px' }}>
                 <h3>Pending Leave Requests</h3>
                 <table className="table table-hover mt-3">
                     <thead className="table-dark">
@@ -86,7 +99,7 @@ export default function AprroveLeave() {
                     </tbody>
                 </table>
             </main>
-        
+        </div>
         </div>
   )
 }
