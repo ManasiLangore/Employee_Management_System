@@ -37,6 +37,25 @@ const AdminAttendance = () => {
   return (
     <div className="admin-wrapper">
       <AdminNav />
+
+      <div className="flex-grow-1" style={{ marginLeft: '260px' }}>
+            
+         {/* Top Header Section */}
+        
+        <header className="content-header">
+          <div className="search-container">
+            <input type="text" placeholder="Search anything..." />
+          </div>
+          <div className="admin-profile d-flex align-items-center">
+            <div className="me-3 text-end">
+              <div className="fw-bold mb-0">Admin Name</div>
+              
+            </div>
+            <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
+              A
+            </div>
+          </div>
+        </header>
       
       <main className="main-content">
         <div className="dashboard-body p-4">
@@ -106,6 +125,7 @@ const AdminAttendance = () => {
           )}
         </div>
       </main>
+      </div>
     </div>
   );
 };
