@@ -34,6 +34,11 @@ public class EmployeeEntity {
     private String Joiningdate;
     private String profile;
 
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private DepartmentEntity dept;
+
     // getters and setters
 
     public int getEmpid() {
