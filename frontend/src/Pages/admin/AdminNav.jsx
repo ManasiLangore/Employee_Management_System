@@ -27,7 +27,7 @@ export default function AdminNav() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/admindashboard" className={({ isActive }) => isActive ? 'active-link' : ''}>
+          <NavLink to="/departments" className={({ isActive }) => isActive ? 'active-link' : ''}>
             <span className="icon"></span> Departments
           </NavLink>
         </li>

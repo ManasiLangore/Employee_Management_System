@@ -19,6 +19,7 @@ import AdminAttendance from './Pages/admin/AdminAttendance';
 import ApplyLeave from './Pages/employee/ApplyLeave';
 import AprroveLeave from './Pages/admin/AprroveLeave';
 import PayrollSystem from './Pages/admin/PayrollSystem';
+import Department from './Pages/admin/Department';
 
 function App() {
   return (
@@ -53,6 +54,8 @@ function App() {
           <Route path='/admin/leave' element={<AprroveLeave></AprroveLeave>}></Route>
 
           <Route path='/admin/payroll' element={<PayrollSystem></PayrollSystem>}></Route>
+
+          <Route path='/departments' element={<Department></Department>}></Route>
 
           <Route path='/'
             element={<Home></Home>}
