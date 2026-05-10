@@ -43,10 +43,15 @@ export default function ViewEmployee() {
           <div className="search-container">
             <input type="text" placeholder="Search anything..." />
           </div>
-          <div className="admin-profile">
+          <div className="admin-profile" style={{paddingLeft:'550px'}}>
             <strong>Admin Name</strong>
           </div>
+          <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
+            A
+          </div>
         </header>
+        <div className="container-fluid py-5 bg-light" style={{ minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
+            <div className="container">
 
       <div className="row">
 
@@ -87,6 +92,8 @@ export default function ViewEmployee() {
 
       ))}
 
+      </div>
+      </div>
       </div>
       </main>
 

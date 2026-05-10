@@ -74,22 +74,26 @@ export default function AddEmployee() {
     }
 
   return (
-    <div className="container mt-4">
+    <div className="container-fluid">
 
         <AdminNav></AdminNav>
-        <div className='header' style={{marginLeft:'260px'}}>
-            <header className="content-header">
+        
+        <main className="main-content" style={{ marginLeft: '260px' }}>
+
+        <header className="content-header">
           <div className="search-container">
             <input type="text" placeholder="Search anything..." />
           </div>
-          <div className="admin-profile">
+          <div className="admin-profile" style={{paddingLeft:'550px'}}>
             <strong>Admin Name</strong>
           </div>
+          <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
+            A
+          </div>
         </header>
-        </div>
-        <main className="main-content" style={{ marginLeft: '260px' }}>
 
-        
+        <div className="container-fluid py-5 bg-light" style={{ minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
+            <div className="container">
 
         <h3 className="mb-3">Add Employee</h3>
 
@@ -272,6 +276,8 @@ export default function AddEmployee() {
     <button className="btn btn-primary mt-3">Add Employee</button>
 
 </form>
+</div>
+</div>
 </main>
 </div>
   )
