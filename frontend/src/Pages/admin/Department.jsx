@@ -64,7 +64,7 @@ export default function Department() {
                 {/* 1. Dashboard Header */}
                 <div className="row mb-5 align-items-center bg-white p-4 rounded-4 shadow-sm border-start border-primary border-5">
                     <div className="col-md-8">
-                        <h1 className="fw-bold style={{ color: '#1a3a5f' }}">Organization Structure</h1>
+                        <h1 className="fw-bold" style={{ color: '#1a3a5f' }}>Organization Structure</h1>
                         <p className="text-secondary mb-0">Manage departments and oversee team distribution</p>
                     </div>
                     <div className="col-md-4 text-md-end">
@@ -113,36 +113,33 @@ export default function Department() {
                     </div>
                 )}
 
+                
                 {/* 3. Department Grid (The "Cards") */}
-                <div className="row g-4">
-                    {departments.map((dept, index) => (
-                        <div className="col-lg-4 col-md-6" key={dept.id}>
-                            <div 
-                                className={`card h-100 border-0 shadow-sm p-2 card-hover-effect ${selectedDept?.id === dept.id ? 'border-primary border-2' : ''}`}
-                                onClick={() => setSelectedDept(dept)}
-                                style={{ cursor: 'pointer', borderRadius: '15px' }}
-                            >
-                                <div className="card-body d-flex flex-column justify-content-between">
-                                    <div>
-                                        <div className="d-flex justify-content-between align-items-start mb-3">
-                                            <div className={`p-3 rounded-3 bg-opacity-10 ${['bg-primary', 'bg-success', 'bg-warning', 'bg-danger'][index % 4]}`}>
-                                                <i className="bi bi-diagram-3-fill fs-4"></i>
-                                            </div>
-                                            <span className="badge bg-light text-dark border">{dept.employees?.length || 0} Staff</span>
-                                        </div>
-                                        <h4 className="fw-bold text-dark mb-2">{dept.name}</h4>
-                                        <p className="text-muted small line-clamp-2">
-                                            {dept.description || "Operational unit dedicated to company growth and excellence."}
-                                        </p>
-                                    </div>
-                                    <div className="mt-3 pt-3 border-top text-primary fw-bold small">
-                                        Click to view personnel &rarr;
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+<div className="row g-4">
+    {departments.length > 0 ? (
+        departments.map((dept, index) => (
+            <div className="col-lg-4 col-md-6" key={dept.id}>
+                <div 
+                    className={`card h-100 border-0 shadow-sm p-2 card-hover-effect ${selectedDept?.id === dept.id ? 'border-primary border-2' : ''}`}
+                    onClick={() => setSelectedDept(dept)}
+                    style={{ cursor: 'pointer', borderRadius: '15px', borderTop: '5px solid #0d6efd' }}
+                >
+                    <div className="card-body">
+                        <h4 className="fw-bold text-dark">{dept.name}</h4>
+                        <p className="text-muted small">{dept.description}</p>
+                        <div className="text-primary fw-bold small">View Members &rarr;</div>
+                    </div>
                 </div>
+            </div>
+        ))
+    ) : (
+        <div className="col-12 text-center py-5">
+            <div className="alert alert-info shadow-sm">
+                No departments found in the database. Please use the <strong>+ New Department</strong> button above to add one.
+            </div>
+        </div>
+    )}
+</div>
 
                 {/* 4. Detailed Employee List (The "Drill-Down") */}
                 {selectedDept && (
