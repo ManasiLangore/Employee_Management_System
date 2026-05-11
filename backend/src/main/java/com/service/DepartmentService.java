@@ -14,6 +14,11 @@ public class DepartmentService {
     @Autowired
     private DepartmentRepository deptrepo;
 
+    // Add this method inside your DepartmentService class
+    public List<DepartmentEntity> getAllDepartments() {
+        return deptrepo.findAll();
+    }
+
     public DepartmentEntity getDepartmentById(int id) {
         return deptrepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Department not found"));

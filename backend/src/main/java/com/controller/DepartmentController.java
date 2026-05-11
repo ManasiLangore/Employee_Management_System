@@ -29,10 +29,10 @@ public class DepartmentController {
     private DepartmentService deptServ;
 
     // 1. GET ALL DEPARTMENTS
-    // @GetMapping
-    // public ResponseEntity<List<DepartmentEntity>> getAllDepartments() {
-    //     return ResponseEntity.ok(deptServ.getAllDepartments());
-    // }
+    @GetMapping
+    public ResponseEntity<List<DepartmentEntity>> getAllDepartments() {
+        return ResponseEntity.ok(deptServ.getAllDepartments());
+    }
 
     // 2. GET SINGLE DEPARTMENT (with employee list)
     @GetMapping("/{id}")
