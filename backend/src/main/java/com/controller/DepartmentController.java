@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.entity.DepartmentEntity;
+import com.entity.EmployeeEntity;
 import com.service.DepartmentService;
 
 @RestController
@@ -51,6 +52,13 @@ public class DepartmentController {
     public ResponseEntity<DepartmentEntity> updateDepartment(@PathVariable int id, @RequestBody DepartmentEntity department) {
         return ResponseEntity.ok(deptServ.updateDepartment(id, department));
     }
+
+    @PostMapping("/register") 
+public ResponseEntity<EmployeeEntity> register(@RequestBody EmployeeEntity emp) {
+    // USE THE SERVICE METHOD we just created to ensure the link happens
+    EmployeeEntity savedEmp = deptServ.registerEmployee(emp);
+    return new ResponseEntity<>(savedEmp, HttpStatus.CREATED);
+}
 
     // 5. DELETE DEPARTMENT
     @DeleteMapping("/{id}")

@@ -216,4 +216,13 @@ public class EmployeeEntity {
     public void setProfile(String profile) {
         this.profile = profile;
     }
+
+    
+    public void setDept(DepartmentEntity dept) {
+        this.dept = dept;
+    }
+
+    public DepartmentEntity getDept() {
+        return dept;
+    }
 }
