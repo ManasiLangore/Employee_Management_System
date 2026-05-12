@@ -24,7 +24,7 @@ public class DepartmentEntity {
 
     private String description;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "dept", cascade = CascadeType.ALL)
     private List<EmployeeEntity> employees;
 
     public int getId() {
