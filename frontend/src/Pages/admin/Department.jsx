@@ -32,6 +32,8 @@ export default function Department() {
             setFormData({ name: '', description: '' });
             setShowForm(false);
             fetchDepartments();
+
+            console.log("Current Selected Dept Data:", selectedDept);
         } catch (error) {
             alert("Could not create department. Please check if the name is unique.");
         }
@@ -167,13 +169,13 @@ export default function Department() {
                                 <tbody>
                                     {selectedDept.employees?.length > 0 ? (
                                         selectedDept.employees.map(emp => (
-                                            <tr key={emp.id}>
+                                            <tr key={emp.empid}>
                                                 <td className="py-3">
                                                     <div className="d-flex align-items-center">
                                                         <div className="avatar me-3 bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style={{width:'40px', height:'40px'}}>
-                                                            {emp.firstName.charAt(0)}
+                                                            {emp.firstname ? emp.firstname.charAt(0) : 'E'}
                                                         </div>
-                                                        <span className="fw-bold">{emp.firstName} {emp.lastName}</span>
+                                                        <span className="fw-bold">{emp.firstname} {emp.lastname}</span>
                                                     </div>
                                                 </td>
                                                 <td>
