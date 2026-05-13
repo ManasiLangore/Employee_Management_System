@@ -2,6 +2,8 @@ package com.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,6 +27,7 @@ public class DepartmentEntity {
     private String description;
 
     @OneToMany(mappedBy = "dept", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<EmployeeEntity> employees;
 
     public int getId() {
