@@ -61,7 +61,8 @@ export default function AddEmployee() {
             panno,profile,email,contactno,designation,department,salary,reportingmanager,exp,
             worklocation,status,joiningdate,edu
         }
-        axios.post("http://localhost:8080/addemp",employee)
+        // axios.post("http://localhost:8080/addemp",employee)
+        axios.post("http://localhost:8080/api/departments/register", employee)
         .then((response)=>{
             if(response.data=="Employee record added sucessfully"){
                 alert(response.data)
