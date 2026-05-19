@@ -20,6 +20,7 @@ import ApplyLeave from './Pages/employee/ApplyLeave';
 import AprroveLeave from './Pages/admin/AprroveLeave';
 import PayrollSystem from './Pages/admin/PayrollSystem';
 import Department from './Pages/admin/Department';
+import RaiseReport from './Pages/employee/RaiseReport';
 
 function App() {
   return (
@@ -92,6 +93,7 @@ function App() {
           <Route path="/employee/attendance" element={<Attendance></Attendance>} />
           <Route path='/employee/leave' element={<ApplyLeave></ApplyLeave>}></Route>
           <Route path="/employee/salary" element={<Salary></Salary>} />
+          <Route path='/employee/report' element={<RaiseReport></RaiseReport>}></Route>
         </Routes>
       </BrowserRouter>
 
