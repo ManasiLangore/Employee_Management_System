@@ -90,6 +90,18 @@ export default function EmployeeDashboard() {
                 </div>
               </div>
 
+              {/* Report */}
+              <div className="col-md-3">
+                <div className="card text-center"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/employee/report")}
+                >
+                  <div className="card-body">
+                    <h5>Report</h5>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 

@@ -41,6 +41,10 @@ export default function EmpNavbar() {
           <Link to="/employee/salary" className='nav-link text-white'>Salary</Link>
         </li>
 
+        <li className="nav-item">
+          <Link to="/employee/report" className='nav-link text-white'>Report</Link>
+        </li>
+
         <li className="nav-item mt-3">
           <button className="btn btn-warning w-100" onClick={handleLogout}>
             Logout
