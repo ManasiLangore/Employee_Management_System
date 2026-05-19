@@ -32,7 +32,7 @@ public class ReportEntity {
     //Many reports can be filed by one employee
     @ManyToOne
     @JoinColumn(name = "empid")
-    private EmployeeEntity emploeyee;
+    private EmployeeEntity employee;
 
     public int getId() {
         return id;
@@ -90,12 +90,12 @@ public class ReportEntity {
         this.createdAt = createdAt;
     }
 
-    public EmployeeEntity getEmploeyee() {
-        return emploeyee;
+    public EmployeeEntity getEmployee() {
+        return employee;
     }
 
-    public void setEmploeyee(EmployeeEntity emploeyee) {
-        this.emploeyee = emploeyee;
+    public void setEmployee(EmployeeEntity employee) {
+        this.employee = employee;
     }
 
     
