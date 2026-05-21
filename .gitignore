@@ -18,3 +18,50 @@ frontend/dist/
 # IDE (JetBrains)
 .idea/
 *.iml
+
+# =========================
+# Build output (VERY IMPORTANT)
+# =========================
+target/
+automation/target/
+
+# compiled classes (optional safety)
+*.class
+
+# =========================
+# IntelliJ IDEA files
+# =========================
+.idea/
+*.iml
+out/
+*.iws
+*.ipr
+
+# =========================
+# Maven wrapper cache
+# =========================
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.swp
+
+# =========================
+# Eclipse (if ever opened there)
+# =========================
+.classpath
+.project
+.settings/
