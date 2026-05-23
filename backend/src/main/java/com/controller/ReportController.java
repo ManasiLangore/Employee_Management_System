@@ -26,9 +26,9 @@ public class ReportController {
     }
 
     //B. EMPLOYEE SIDE: View personal file history
-    @GetMapping("employee/{empid}")
+    @GetMapping("/employee/{empid}")
     public ResponseEntity<List<ReportEntity>> getEmployeeReports(@PathVariable int empid){
-        return ResponseEntity.ok(reportServ.getAllReports());
+        return ResponseEntity.ok(reportServ.getReportsByEmployee(empid));
     }
 
     //C. ADMIN SIDE: Resolve/Reply to an emplyee's report
