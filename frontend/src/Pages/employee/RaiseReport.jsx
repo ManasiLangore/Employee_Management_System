@@ -59,7 +59,7 @@ export default function RaiseReport() {
         <div className='d-flex'>
             <EmpNavbar/> 
             
-                <div className="container mt-5 mb-4">//mb-5
+                <div className="container mt-5 mb-4">
                     <h2 className="fw-bold mb-4" style={{ color: '#1a3a5f' }}>Grievance & Issue Reporting</h2>
                     
                     {/* Part A: Create/Raise Form */}
