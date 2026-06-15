@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+📌 Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Employee Management System is a full-stack web application designed to manage employee information efficiently within an organization. The system provides separate functionalities for administrators and employees, enabling smooth management of employee records, reports, and organizational data.
 
-## Available Scripts
+This project is developed using React.js for the frontend, Spring Boot for the backend, and MySQL as the database.
 
-In the project directory, you can run:
+🚀 Architectural Overview
+The application follows a decoupled, client-server architecture to ensure scalability, ease of maintenance, and separation of concerns.
 
-### `npm start`
++------------------------+      REST APIs      +------------------------+
+|      Frontend          | <-----------------> |       Backend          |
+|  (React.js & Tailwind)  |    JSON over HTTP    |  (Spring Boot & JPA)   |
++------------------------+                     +------------------------+
+                                                           |
+                                                           | Hibernate
+                                                           v
+                                               +------------------------+
+                                               |       Database         |
+                                               |       (MySQL)          |
+                                               +------------------------+
+Frontend (Client Layer): Built using React.js. It manages user state, handles client-side routing, and provides a responsive, intuitive interface styled with Tailwind CSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Backend (Application Layer): Powered by Java and Spring Boot. It exposes a secure RESTful API, handles business logic processing, validates data, and communicates with the database layer.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database (Data Layer): Uses MySQL managed via Spring Data JPA (Hibernate) for object-relational mapping, ensuring persistent and reliable data storage.
 
-### `npm test`
+🛠️ Tech Stack
+Frontend
+React.js
+React Router
+Axios
+Bootstrap / CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Backend
+Java
+Spring Boot
+Spring Security
+Spring Data JPA
+REST API
 
-### `npm run build`
+Database
+MySQL
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tools & Technologies
+Maven
+Git & GitHub
+Postman
+VS Code / IntelliJ IDEA
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+⚙️ Installation & Setup
+Step 1: Clone Repository
+git clone https://github.com/yourusername/employee-management-system.git
+cd employee-management-system
+Step 2: Configure Database
 
-### `npm run eject`
+Create a MySQL database:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+CREATE DATABASE employeemanagement;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Update application.properties:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+spring.datasource.url=jdbc:mysql://localhost:3306/employeemanagement
+spring.datasource.username=root
+spring.datasource.password=yourpassword
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+Step 3: Run Backend
 
-## Learn More
+Navigate to backend folder:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd backend
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run Spring Boot Application:
 
-### Code Splitting
+mvn spring-boot:run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Backend will run on:
 
-### Analyzing the Bundle Size
+http://localhost:8080
+Step 4: Run Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Navigate to frontend folder:
 
-### Making a Progressive Web App
+cd frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Install dependencies:
 
-### Advanced Configuration
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Start React Application:
 
-### Deployment
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Frontend will run on:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+http://localhost:3000
