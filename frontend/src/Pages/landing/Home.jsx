@@ -208,158 +208,245 @@ export default function Home() {
 
 
 
-      {/* CAROUSEL */}
-      <div id="carouselExampleCaptions" className="carousel slide mt-4 container" data-bs-ride="carousel">
-        
-        <div className="carousel-inner rounded shadow">
+      {/* ===== FEATURES ===== */}
+      
+      <section className='py-5'>
+        <div className='container'>
 
-          <div className="carousel-item active">
-            <img 
-              src="https://cdn.techjockey.com/blog/wp-content/uploads/2022/12/15122450/14-Best-Employee-Management-System-for-Small-Business-in-India-_feature.jpg"
-              className="d-block w-100"
-              style={{ height: "400px", objectFit: "cover" }}
-              alt="slide1"
-            />
-            <div className="carousel-caption bg-dark bg-opacity-50 rounded p-2">
-              <h5>Manage Employees</h5>
-              <p>All employee data in one place</p>
-            </div>
+          <div className='text-center mb-5'>
+            <span className='fw-bold' style={{ color: "#7c3aed" }}>
+              POWERFUL FEATURES
+            </span>
+
+            <h2 className='fw-bold mt-2'>
+              Everything You Need in One Place
+            </h2>
+
+            <p className="text-muted"> 
+              Simplify everyday employee management with one centralized platform. 
+            </p>
           </div>
 
-          <div className="carousel-item">
-            <img 
-              src="https://leapmax.ai/wp-content/uploads/2024/10/employee-management-system.webp"
-              className="d-block w-100"
-              style={{ height: "400px", objectFit: "cover" }}
-              alt="slide2"
-            />
-            <div className="carousel-caption bg-dark bg-opacity-50 rounded p-2">
-              <h5>Track Performance</h5>
-              <p>Monitor progress easily</p>
+          <div className='row g-4'>
+
+            {/* FEATURE 1 */}
+            <div className='col-md-6 col-lg-3'>
+              <div className="card border-0 h-100 p-4 text-center shadow-sm" style={{ borderRadius: "20px", borderTop: "5px solid #6366f1", }}>
+                <div className="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style={{ width: "70px", height: "70px", background: "#e0e7ff", fontSize: "30px", }}>
+                  👨‍💼
+                </div>
+                <h5 className="fw-bold"> 
+                  Employee Management 
+                </h5> 
+                <p className="text-muted small"> 
+                  Manage employee profiles, departments and important information. 
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="carousel-item">
-            <img 
-              src="https://leapmax.ai/wp-content/uploads/2024/10/employee-management-system.webp"
-              className="d-block w-100"
-              style={{ height: "400px", objectFit: "cover" }}
-              alt="slide3"
-            />
-            <div className="carousel-caption bg-dark bg-opacity-50 rounded p-2">
-              <h5>Secure System</h5>
-              <p>Safe and reliable data</p>
+            {/* FEATURE 2 */}
+            <div className="col-md-6 col-lg-3"> 
+              <div className="card border-0 h-100 p-4 text-center shadow-sm" style={{ borderRadius: "20px", borderTop: "5px solid #10b981", }} > 
+                <div className="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style={{ width: "70px", height: "70px", background: "#d1fae5", fontSize: "30px", }} > 
+                  📅 
+                </div> 
+                <h5 className="fw-bold"> 
+                  Attendance 
+                </h5> 
+                <p className="text-muted small"> 
+                  Track daily attendance and employee presence efficiently. 
+                </p> 
+              </div> 
             </div>
-          </div>
 
-        </div>
-
-        {/* Controls */}
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon"></span>
-        </button>
-
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span className="carousel-control-next-icon"></span>
-        </button>
-
-      </div>
-
-      {/* FEATURES SECTION */}
-      <div className="container mt-5">
-        <h2 className="text-center mb-4">Features</h2>
-
-        <div className="row text-center">
-
-          <div className="col-md-4">
-            <div className="card shadow p-3">
-              <h4>👨‍💼 Employee Records</h4>
-              <p>Store and manage employee information easily.</p>
+            {/* FEATURE 3 */} 
+            <div className="col-md-6 col-lg-3"> 
+              <div className="card border-0 h-100 p-4 text-center shadow-sm" style={{ borderRadius: "20px", borderTop: "5px solid #f59e0b", }} > 
+                <div className="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style={{ width: "70px", height: "70px", background: "#fef3c7", fontSize: "30px", }} > 
+                  📝 
+                </div> 
+                <h5 className="fw-bold"> 
+                  Leave Management 
+                </h5> 
+                <p className="text-muted small"> 
+                  Apply, review and approve employee leave requests. 
+                </p> 
+              </div> 
+            </div> 
+            
+            {/* FEATURE 4 */} 
+            <div className="col-md-6 col-lg-3"> 
+              <div className="card border-0 h-100 p-4 text-center shadow-sm" style={{ borderRadius: "20px", borderTop: "5px solid #ec4899", }} > 
+                <div className="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style={{ width: "70px", height: "70px", background: "#fce7f3", fontSize: "30px", }} > 
+                  💰 
+                </div>
+                <h5 className="fw-bold"> 
+                  Payroll 
+                </h5> 
+                <p className="text-muted small"> 
+                  Manage salaries, payroll information and pay slips. 
+                </p> 
+              </div> 
             </div>
-          </div>
 
-          <div className="col-md-4">
-            <div className="card shadow p-3">
-              <h4>📊 Reports</h4>
-              <p>Generate reports and track performance.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card shadow p-3">
-              <h4>🔐 Security</h4>
-              <p>Secure authentication and data protection.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ABOUT US PREVIEW */}
-      <div className="container mt-5 text-center">
-        <h2>About Us</h2>
-        <p className="mt-3">
-          We provide a smart and efficient Employee Management System to help organizations
-          manage employee data, track performance, and improve productivity.
-        </p>
-
-        <Link to="/aboutus" className="btn btn-primary mt-2">
-          Read More
-        </Link>
-      </div>
-
-      {/* SERVICES PREVIEW */}
-      <div className="container mt-5">
-        <h2 className="text-center mb-4">Our Services</h2>
-
-        <div className="row text-center">
-
-          <div className="col-md-4">
-            <div className="card shadow p-3">
-              <h5>Employee Tracking</h5>
-              <p>Monitor employee details and activities.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card shadow p-3">
-              <h5>Attendance System</h5>
-              <p>Track attendance efficiently.</p>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card shadow p-3">
-              <h5>Payroll</h5>
-              <p>Manage salaries and payments.</p>
-            </div>
           </div>
 
         </div>
+      </section>
 
-        <div className="text-center mt-3">
-          <Link to="/service" className="btn btn-success">
-            Explore Services
+      {/* ================= COLORFUL PROCESS ================= */}
+      <section 
+        className="py-5" style={{ background: "linear-gradient(180deg,#f5f3ff,#eef2ff)", }} > 
+        <div className="container"> 
+          <div className="text-center mb-5"> 
+            <span className="fw-bold text-primary"> 
+              HOW EMS WORKS 
+            </span> 
+            <h2 className="fw-bold mt-2"> 
+              From Login to Insights 
+            </h2> 
+          </div> 
+
+          <div className="row g-4 text-center"> 
+            <div className="col-md-3"> 
+              <div className="rounded-4 p-4 h-100" style={{ background: "#ffffff" }} > 
+                <div className="mx-auto rounded-circle d-flex align-items-center justify-content-center fw-bold text-white" style={{ width: "65px", height: "65px", background: "linear-gradient(135deg,#6366f1,#8b5cf6)", fontSize: "22px", }} >
+                  01 
+                </div> 
+                <h5 className="fw-bold mt-3"> 
+                  Login 
+                </h5> 
+                <p className="text-muted small"> 
+                  Access your personalized EMS account. 
+                </p>
+              </div> 
+            </div> 
+            
+            <div className="col-md-3"> 
+              <div className="rounded-4 p-4 h-100" style={{ background: "#ffffff" }} > 
+                <div className="mx-auto rounded-circle d-flex align-items-center justify-content-center fw-bold text-white" style={{ width: "65px", height: "65px", background: "linear-gradient(135deg,#06b6d4,#0ea5e9)", fontSize: "22px", }} > 
+                  02 
+                </div> 
+                <h5 className="fw-bold mt-3"> 
+                  Manage 
+                </h5> 
+                <p className="text-muted small"> 
+                  Manage employee information and operations. 
+                </p> 
+              </div> 
+            </div> 
+            
+            <div className="col-md-3"> 
+              <div className="rounded-4 p-4 h-100" style={{ background: "#ffffff" }} > 
+                <div className="mx-auto rounded-circle d-flex align-items-center justify-content-center fw-bold text-white" style={{ width: "65px", height: "65px", background: "linear-gradient(135deg,#10b981,#14b8a6)", fontSize: "22px", }} > 
+                  03 
+                </div> 
+                <h5 className="fw-bold mt-3"> 
+                  Track 
+                </h5> 
+                <p className="text-muted small"> 
+                  Track attendance, leaves and payroll. 
+                </p> 
+              </div> 
+            </div> 
+            
+            <div className="col-md-3"> 
+              <div className="rounded-4 p-4 h-100" style={{ background: "#ffffff" }} > 
+                <div className="mx-auto rounded-circle d-flex align-items-center justify-content-center fw-bold text-white" style={{ width: "65px", height: "65px", background: "linear-gradient(135deg,#f59e0b,#f97316)", fontSize: "22px", }} > 
+                  04 
+                </div> 
+                <h5 className="fw-bold mt-3"> 
+                  Analyze 
+                </h5> 
+                <p className="text-muted small"> 
+                  Get useful insights from your employee data. 
+                </p> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+      </section>
+
+
+      {/* ================= CTA ================= */}
+      <section
+        className="py-5 text-white text-center"
+        style={{
+          background: "linear-gradient(135deg, #0d6efd, #084298)",
+        }}
+      >
+        <div className="container">
+          <h2 className="fw-bold">
+            Ready to Manage Your Workforce?
+          </h2>
+
+          <p className="lead">
+            Experience a smarter way to manage employee operations.
+          </p>
+
+          <Link
+            to="/login"
+            className="btn btn-warning btn-lg px-5 fw-bold"
+          >
+            Get Started →
           </Link>
         </div>
-      </div>
+      </section>
 
-      {/* CONTACT PREVIEW */}
-      <div className="container mt-5 text-center">
-        <h2>Contact Us</h2>
-        <p className="mt-3">
-          Have questions or need support? Get in touch with us anytime.
-        </p>
 
-        <Link to="/contactus" className="btn btn-danger mt-2">
-          Contact Now
-        </Link>
-      </div>
+      {/* ================= FOOTER ================= */}
+      <footer
+        className="text-white py-4"
+        style={{
+          background: "#0b1f3a",
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center">
 
-      {/* FOOTER */}
-      <div className="bg-primary text-white text-center p-3 mt-5">
-        <p>© 2026 Employee Management System</p>
-      </div>
+            <div className="col-md-6">
+              <h5 className="fw-bold mb-1">
+                EMS
+              </h5>
+
+              <p className="text-white-50 mb-0">
+                Employee Management System
+              </p>
+            </div>
+
+            <div className="col-md-6 text-md-end mt-3 mt-md-0">
+
+              <Link
+                to="/aboutus"
+                className="text-white-50 text-decoration-none me-3"
+              >
+                About
+              </Link>
+
+              <Link
+                to="/service"
+                className="text-white-50 text-decoration-none me-3"
+              >
+                Services
+              </Link>
+
+              <Link
+                to="/contactus"
+                className="text-white-50 text-decoration-none"
+              >
+                Contact
+              </Link>
+
+              <p className="text-white-50 small mt-3 mb-0">
+                © 2026 Employee Management System
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
 
     </div>
   )

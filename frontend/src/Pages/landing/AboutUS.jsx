@@ -1,3 +1,4 @@
+
 import React from 'react'
 import HomeNavbar from './HomeNavbar'
 
@@ -5,93 +6,137 @@ export default function AboutUS() {
   return (
     <div>
 
-      <HomeNavbar></HomeNavbar>
+      <HomeNavbar />
 
       {/* HEADER */}
-      <div className="bg-primary text-white text-center p-5">
-        <h1 className="fw-bold">About Us</h1>
-        <p className="lead">Know more about our Employee Management System</p>
+      <div
+        className="text-white text-center py-5"
+        style={{
+          background: "linear-gradient(135deg, #0d6efd, #084298)"
+        }}
+      >
+        <div className="container">
+          <h1 className="fw-bold">About Our System</h1>
+
+          <p className="lead mb-0">
+            A simple way to manage employee information and daily operations.
+          </p>
+        </div>
       </div>
+
 
       {/* ABOUT CONTENT */}
-      <div className="container mt-5">
+      <div className="container py-5">
+
         <div className="row justify-content-center">
-          <div className="col-md-8 text-center">
 
-            <p className="fs-5">
-              The Employee Management System (EMS) is a web-based application
-              designed to simplify the management of employee data within an organization.
+          <div className="col-md-9">
+
+            <h2 className="fw-bold text-primary mb-4 text-center">
+              Employee Management System
+            </h2>
+
+            <p className="fs-5 text-secondary">
+              Managing employee information manually can take a lot of time.
+              Our Employee Management System is designed to make these tasks
+              easier and more organized.
             </p>
 
-            <p>
-              This system helps in maintaining employee records, tracking attendance,
-              and managing payroll efficiently. It reduces manual work and improves accuracy.
+            <p className="text-secondary">
+              The system provides a centralized platform for managing
+              employee-related information within an organization. It helps
+              reduce repetitive manual work and keeps important information
+              organized in one place.
             </p>
 
-            <p>
-              This project is developed as part of academic learning to understand
-              real-world software development using modern technologies like React and Spring Boot.
+            <p className="text-secondary">
+              This project was developed as part of our academic learning
+              to understand how a real-world web application works using
+              technologies such as React, Spring Boot and MySQL.
             </p>
 
           </div>
+
         </div>
+
       </div>
+
 
       {/* MISSION & VISION */}
-      <div className="container mt-5">
-        <div className="row g-4">
+      <div className="bg-light py-5">
 
-          {/* Mission */}
-          <div className="col-md-6">
-            <div className="card shadow h-100 p-4 text-center">
-              <h3>🎯 Our Mission</h3>
-              <p>
-                To provide a simple and efficient system for managing employee data
-                and improving organizational productivity.
-              </p>
-            </div>
+        <div className="container">
+
+          <div className="text-center mb-4">
+
+            <h2 className="fw-bold">
+              Our Goal
+            </h2>
+
+            <p className="text-secondary">
+              What we want this system to achieve
+            </p>
+
           </div>
 
-          {/* Vision */}
-          <div className="col-md-6">
-            <div className="card shadow h-100 p-4 text-center">
-              <h3>🚀 Our Vision</h3>
-              <p>
-                To build smart and scalable solutions that make business management easier
-                using modern technology.
-              </p>
+
+          <div className="row g-4">
+
+            {/* Mission */}
+            <div className="col-md-6">
+
+              <div className="card border-0 shadow-sm h-100 p-4">
+
+                <h3 className="fw-bold text-primary">
+                  Our Mission
+                </h3>
+
+                <p className="text-secondary mt-3 mb-0">
+                  To reduce repetitive manual work and provide a simple
+                  system for managing employee information in an organized
+                  and efficient way.
+                </p>
+
+              </div>
+
             </div>
+
+
+            {/* Vision */}
+            <div className="col-md-6">
+
+              <div className="card border-0 shadow-sm h-100 p-4">
+
+                <h3 className="fw-bold text-primary">
+                  Our Vision
+                </h3>
+
+                <p className="text-secondary mt-3 mb-0">
+                  To create an easy-to-use employee management platform
+                  that can be improved and expanded as an organization grows.
+                </p>
+
+              </div>
+
+            </div>
+
           </div>
 
         </div>
+
       </div>
 
-      {/* EXTRA SECTION (optional but looks awesome) */}
-      <div className="container mt-5 text-center">
-        <h3>Why Choose Us?</h3>
-        <div className="row mt-4">
-
-          <div className="col-md-4">
-            <h5>⚡ Fast</h5>
-            <p>Quick and efficient employee management.</p>
-          </div>
-
-          <div className="col-md-4">
-            <h5>🔐 Secure</h5>
-            <p>Your data is safe with proper authentication.</p>
-          </div>
-
-          <div className="col-md-4">
-            <h5>📱 Easy to Use</h5>
-            <p>Simple and user-friendly interface.</p>
-          </div>
-
-        </div>
-      </div>
 
       {/* FOOTER */}
-      <div className="bg-primary text-white text-center p-3 mt-5">
-        <p>© 2026 Employee Management System</p>
+      <div
+        className="text-white text-center py-4"
+        style={{
+          background: "#0b1f3a"
+        }}
+      >
+        <p className="mb-0">
+          © 2026 Employee Management System
+        </p>
       </div>
 
     </div>

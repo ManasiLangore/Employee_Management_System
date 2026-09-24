@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import HomeNavbar from './HomeNavbar'
 
@@ -18,96 +19,191 @@ export default function ContactUS() {
 
   return (
     <div>
-      <HomeNavbar></HomeNavbar>
+
+      <HomeNavbar />
 
       {/* HEADER */}
-      <div className="bg-primary text-white text-center p-5">
-        <h1 className="fw-bold">Contact Us</h1>
-        <p className="lead">We would love to hear from you</p>
+      <div
+        className="text-white text-center py-5"
+        style={{
+          background: "linear-gradient(135deg, #0d6efd, #084298)"
+        }}
+      >
+        <div className="container">
+
+          <h1 className="fw-bold">
+            Contact Us
+          </h1>
+
+          <p className="lead mb-0">
+            We would love to hear from you
+          </p>
+
+        </div>
       </div>
 
+
       {/* FORM SECTION */}
-      <div className="container mt-5">
+      <div className="container py-5">
+
         <div className="row justify-content-center">
 
-          <div className="col-md-6">
-            <div className="card shadow p-4">
+          <div className="col-md-7">
+
+            <div className="card border-0 shadow-sm p-4">
 
               <form onSubmit={handleSubmit}>
-                <h1>For any query fill following form </h1>
+
+                <h2 className="fw-bold text-primary text-center mb-4">
+                  For any query, fill the following form
+                </h2>
+
+
+                {/* NAME */}
                 <div className="mb-3">
-                  <label className="form-label">Name</label>
+
+                  <label className="form-label fw-semibold">
+                    Name
+                  </label>
+
                   <input
                     type="text"
                     className="form-control"
                     placeholder="Enter your name"
                     value={name}
-                    onChange={(e)=>setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                     required
                   />
+
                 </div>
 
+
+                {/* EMAIL */}
                 <div className="mb-3">
-                  <label className="form-label">Email</label>
+
+                  <label className="form-label fw-semibold">
+                    Email
+                  </label>
+
                   <input
                     type="email"
                     className="form-control"
                     placeholder="Enter your email"
                     value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
+
                 </div>
 
-                <div className="mb-3">
-                  <label className="form-label">Message</label>
+
+                {/* MESSAGE */}
+                <div className="mb-4">
+
+                  <label className="form-label fw-semibold">
+                    Message
+                  </label>
+
                   <textarea
                     className="form-control"
-                    rows="4"
+                    rows="5"
                     placeholder="Enter your message"
                     value={message}
-                    onChange={(e)=>setMessage(e.target.value)}
+                    onChange={(e) => setMessage(e.target.value)}
                     required
                   />
+
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100">
+
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100 py-2"
+                >
                   Send Message
                 </button>
 
               </form>
 
             </div>
+
           </div>
 
         </div>
+
       </div>
+
 
       {/* CONTACT INFO */}
-      <div className="container mt-5">
-        <div className="row text-center">
+      <div className="container pb-5">
+
+        <div className="row text-center g-4">
 
           <div className="col-md-4">
-            <h5>📧 Email</h5>
-            <p>support@ems.com</p>
+
+            <div className="card border-0 shadow-sm h-100 p-4">
+
+              <h5 className="fw-bold text-primary">
+                Email
+              </h5>
+
+              <p className="text-secondary mb-0">
+                support@ems.com
+              </p>
+
+            </div>
+
           </div>
 
-          <div className="col-md-4">
-            <h5>📞 Phone</h5>
-            <p>9876543210</p>
-          </div>
 
           <div className="col-md-4">
-            <h5>📍 Location</h5>
-            <p>Pune, India</p>
+
+            <div className="card border-0 shadow-sm h-100 p-4">
+
+              <h5 className="fw-bold text-primary">
+                Phone
+              </h5>
+
+              <p className="text-secondary mb-0">
+                9876543210
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div className="col-md-4">
+
+            <div className="card border-0 shadow-sm h-100 p-4">
+
+              <h5 className="fw-bold text-primary">
+                Location
+              </h5>
+
+              <p className="text-secondary mb-0">
+                Pune, India
+              </p>
+
+            </div>
+
           </div>
 
         </div>
+
       </div>
 
+
       {/* FOOTER */}
-      <div className="bg-primary text-white text-center p-3 mt-5">
-        <p>© 2026 Employee Management System</p>
+      <div
+        className="text-white text-center py-4"
+        style={{
+          background: "#0b1f3a"
+        }}
+      >
+        <p className="mb-0">
+          © 2026 Employee Management System
+        </p>
       </div>
 
     </div>
